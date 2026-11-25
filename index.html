@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dean Kelso – Digital Creator / Designer</title>
+<meta name="description" content="Dean Kelso: game dev, 3D art and video. I learn it, then I build it. Hillsboro, OR. Open to work.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dean Kelso – Digital Creator / Designer">
+<meta property="og:description" content="Game dev, 3D art and video. I learn it, then I build it. Open to work.">
+<meta property="og:url" content="https://deankelso.github.io/">
+<meta property="og:image" content="https://deankelso.github.io/img/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dean Kelso – Digital Creator / Designer">
+<meta name="twitter:description" content="Game dev, 3D art and video. I learn it, then I build it.">
+<meta name="twitter:image" content="https://deankelso.github.io/img/og-preview.jpg">
+<link rel="canonical" href="https://deankelso.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23000'/%3E%3Cpath d='M1.5 12.5V4.5l3.2 3.3L8 2.5l3.3 5.3 3.2-3.3v8z' fill='%23e3a33b'/%3E%3Crect x='1.5' y='11' width='13' height='1.5' fill='%23b8741f'/%3E%3Ccircle cx='8' cy='8.6' r='1.4' fill='%23d8262b'/%3E%3Ccircle cx='4.4' cy='9.4' r='.9' fill='%232456c4'/%3E%3Ccircle cx='11.6' cy='9.4' r='.9' fill='%232456c4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#fff; --page:#000; --dim:#a9a9a9; --line:#2a2a2a; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--page); color: var(--ink); }
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  [hidden] { display: none !important; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+
+  /* NAV: always visible, never a mystery */
+  nav { position: fixed; inset: 0 0 auto 0; z-index: 20; display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center; padding: 18px clamp(16px, 3vw, 40px); background: linear-gradient(#000 40%, rgba(0,0,0,0)); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  nav .logo { font-weight: 800; text-decoration: none; }
+  nav .logo span { animation: blink 1.1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 0; padding: 0; }
+  nav a { text-decoration: none; display: inline-block; padding: 8px 0; }
+  nav a:hover, nav a:focus-visible { background: #fff; color: #000; }
+  nav .cta { border: 1px solid #fff; padding: 8px 12px; }
+
+  /* HERO */
+  .hero { position: relative; height: 100vh; min-height: 680px; overflow: hidden; }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .switch { position: absolute; z-index: 5; top: 92px; right: clamp(16px, 3vw, 40px); display: flex; flex-direction: column; align-items: flex-end; gap: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+  .switch button { padding: 8px 10px; min-height: 36px; color: #cfcfcf; background: #000; }
+  .switch button[aria-pressed="true"] { color: #000; background: #fff; }
+  .switch button:hover { color: #fff; }
+  .switch button[aria-pressed="true"]:hover { color: #000; }
+  .switch .hint { color: #a9a9a9; background: #000; padding: 4px 10px; }
+
+  .id { position: absolute; z-index: 5; left: clamp(16px, 3vw, 40px); bottom: 56px; max-width: calc(100% - 32px); display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .id pre { margin: 0 0 2px; font-size: clamp(5.5px, 1.32vw, 17px); line-height: 1; font-weight: 400; background: #000; padding: 10px 12px 6px; }
+  .id .roles { background: #000; padding: 6px 12px; font-size: clamp(18px, 2.6vw, 38px); font-weight: 700; letter-spacing: .02em; line-height: 1.2; }
+  .id .motto { margin-top: -6px; background: #000; padding: 4px 12px; font-size: clamp(14px, 1.5vw, 20px); letter-spacing: .02em; color: #d6d6d6; }
+  .id .info { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+  .id .info .row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .id .info span { background: #000; padding: 4px 8px; }
+  .id .info .lbl { color: #8a8a8a; padding-right: 2px; }
+  .id .info .open { border: 1px solid #fff; display: inline-flex; align-items: center; gap: 7px; }
+  .id .info .open::before { content: ''; width: 7px; height: 7px; background: #fff; border-radius: 50%; }
+  .id .now { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-top: 4px; background: #000; padding: 8px 12px; font-size: 13px; letter-spacing: .04em; border: 1px solid #fff; max-width: 100%; }
+  .id .now .k { background: #fff; color: #000; padding: 1px 6px; font-size: 11px; letter-spacing: .12em; }
+  .id .now .d { color: #a9a9a9; }
+  .id .now i { font-style: normal; animation: blink 1s steps(1) infinite; }
+  @media (prefers-reduced-motion: reduce) { .id .now i { animation: none; } }
+
+  /* THUMB STRIP (Isabel) with ASCII hover */
+  .strip { display: flex; gap: 14px; overflow-x: auto; padding: 40px 0 6px; scrollbar-width: none; -ms-overflow-style: none; }
+  .strip::-webkit-scrollbar { display: none; }
+  .strip a { flex: 0 0 auto; text-decoration: none; display: flex; flex-direction: column; gap: 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+  .strip a:hover, .strip a:focus-visible { color: #fff; }
+  .thumb { position: relative; width: 220px; height: 140px; background: #000; border: 1px solid #333; overflow: hidden; }
+  .thumb img, .thumb canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .35s; }
+  .thumb img { opacity: 0; }
+  .strip a:hover .thumb img, .strip a:focus-visible .thumb img { opacity: 1; }
+  .strip a:hover .thumb canvas, .strip a:focus-visible .thumb canvas { opacity: 0; }
+  .strip a:hover .thumb { border-color: #fff; }
+
+  /* SECTIONS */
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 3vw, 40px); }
+  .rule { white-space: nowrap; overflow: hidden; color: #6f6f6f; font-size: 13px; padding: 64px 0 28px; user-select: none; }
+  .rule b { color: #fff; font-weight: 500; }
+
+  .work a { display: grid; grid-template-columns: 70px 1fr auto; gap: 8px 24px; align-items: baseline; padding: 26px 8px; border-top: 1px solid var(--line); text-decoration: none; }
+  .work a { position: relative; }
+  .work .boxguy { position: absolute; left: -9px; top: -9px; pointer-events: none; z-index: 2; }
+  .clippeek { position: fixed; left: 0; top: 0; z-index: 60; pointer-events: none; background: #000; border: 2px solid #fff; box-shadow: 0 0 0 2px #000, 0 18px 40px rgba(0,0,0,.5); opacity: 0; transform: scale(.92); transform-origin: left center; transition: opacity .16s, transform .16s; }
+  .clippeek.on { opacity: 1; transform: none; }
+  .clippeek video { display: block; width: 100%; height: auto; }
+  .clippeek b { position: absolute; left: 8px; top: 8px; background: #000; color: #fff; font: 700 10px/1 var(--mono, 'JetBrains Mono', monospace); letter-spacing: .08em; padding: 4px 6px; border: 1px solid #fff; }
+  .work .mascot { display: inline-block; vertical-align: middle; margin: -12px 0 -8px 18px; pointer-events: none; }
+  @media (max-width: 480px) { .work .mascot { zoom: .8; margin-left: 10px; } }
+  .work a:last-child { border-bottom: 1px solid var(--line); }
+  .work .n { color: #8a8a8a; font-size: 13px; }
+  .work h3 { margin: 0; font-size: clamp(24px, 4vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -.01em; text-transform: uppercase; }
+  .work p { margin: 8px 0 0; color: var(--dim); max-width: 640px; }
+  .work .meta { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #8a8a8a; text-align: right; }
+  .work a:hover, .work a:focus-visible { background: #fff; color: #000; }
+  .work a:hover .n, .work a:hover p, .work a:hover .meta { color: #333; }
+
+  /* ART INDEX */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+  .chips button { border: 1px solid #555; padding: 8px 12px; min-height: 36px; color: #cfcfcf; }
+  .chips button:hover { border-color: #fff; color: #fff; }
+  .chips button[aria-pressed="true"] { background: #fff; color: #000; border-color: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px 18px; }
+  .card { text-decoration: none; display: flex; flex-direction: column; gap: 8px; }
+  .card .thumb { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+  .card:hover .thumb img, .card:focus-visible .thumb img { opacity: 1; }
+  .card:hover .thumb canvas, .card:focus-visible .thumb canvas { opacity: 0; }
+  .card:hover .thumb, .card:focus-visible .thumb { border-color: #fff; }
+  .card b { font-size: 16px; text-transform: uppercase; letter-spacing: .02em; line-height: 1.25; }
+  .card small { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+  .card .draft { color: #000; background: #a9a9a9; padding: 0 5px; margin-left: 6px; }
+
+  .more-t { display: flex; align-items: center; gap: 14px; width: 100%; margin: 46px 0 18px; padding: 12px 0; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #fff; }
+  .more-t .lab { white-space: nowrap; padding: 6px 10px; border: 1px solid #fff; }
+  .more-t:hover .lab, .more-t:focus-visible .lab { background: #fff; color: #000; }
+  .more-t .ln { position: relative; flex: 1; border-top: 2px dashed #fff; transition: transform .25s; }
+  .more-t .ln.l::after, .more-t .ln.r::before { position: absolute; top: -9px; font-size: 15px; line-height: 1; }
+  .more-t .ln.l::after { content: ">"; right: -4px; } .more-t .ln.r::before { content: "<"; left: -4px; }
+  .more-t:hover .ln.l { transform: translateX(6px); } .more-t:hover .ln.r { transform: translateX(-6px); }
+  .more-t[aria-expanded="true"] .ln.l::after { content: "<"; } .more-t[aria-expanded="true"] .ln.r::before { content: ">"; }
+  /* ART BENTO (Nov 24): real color art, huge lead piece, ASCII decodes in + glows on hover */
+  #artGrid.bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(170px, 17vw, 240px); grid-auto-flow: dense; gap: 14px; }
+  #artGrid.bento .card { position: relative; gap: 0; min-height: 0; }
+  #artGrid.bento .card .thumb { position: absolute; inset: 0; aspect-ratio: auto; height: 100%; border: 2px solid #fff; }
+  #artGrid.bento .card.big { grid-column: span 2; grid-row: span 2; }
+  #artGrid.bento .card.tall { grid-row: span 2; }
+  #artGrid.bento .card.wide { grid-column: span 2; }
+  #art .card .thumb img { opacity: 1; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  #art .card .thumb canvas { opacity: 1; clip-path: inset(0 0 0 0); }
+  #art .card .thumb.done canvas { clip-path: inset(100% 0 0 0); opacity: 0; mix-blend-mode: screen; transition: clip-path 1.1s steps(18), opacity .35s 1.1s; }
+  #art .card:hover .thumb img, #art .card:focus-visible .thumb img { transform: scale(1.05); }
+  #art .card:hover .thumb.done canvas, #art .card:focus-visible .thumb.done canvas { clip-path: inset(0 0 0 0); opacity: .45; transition: opacity .25s, clip-path 0s; }
+  #art .card .thumb video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s, transform .6s cubic-bezier(.2,.7,.2,1); }
+  #art .card .thumb.playing video { opacity: 1; }
+  #art .card:hover .thumb video { transform: scale(1.05); }
+  #art .card .thumb canvas { z-index: 1; }
+  #art .card .thumb.drift img { animation: drift 7s ease-in-out var(--dd, 0s) infinite alternate; }
+  @keyframes drift { 0% { scale: 1.07; translate: -2% -1.2% } 50% { scale: 1.12; translate: 1.6% .8% } 100% { scale: 1.08; translate: 1% -1.8% } }
+  #art .card .thumb .layers { position: absolute; inset: 0; }
+  #art .card .thumb .layers img { opacity: 1; clip-path: inset(0 0 0 0); }
+  #art .card .thumb .layers img.off { clip-path: inset(0 100% 0 0); }
+  #art .card .thumb .layers img.in { clip-path: inset(0 0 0 0); transition: clip-path .55s cubic-bezier(.7,0,.2,1); }
+  #art .card .thumb.swipe > img { visibility: hidden; }
+  #artGrid.bento .laytag { position: absolute; z-index: 2; top: 10px; left: 10px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; background: #000; border: 1px solid #fff; padding: 2px 6px; }
+  #artGrid.bento .laytag:empty { display: none; }
+  @media (prefers-reduced-motion: reduce) { #art .card .thumb.drift img { animation: none; } }
+  #artGrid.bento .looptag { position: absolute; z-index: 2; top: 10px; left: 10px; font-size: 10px; letter-spacing: .12em; background: #fff; color: #000; padding: 2px 6px; }
+  #artGrid.bento .card .cap { position: absolute; left: 10px; bottom: 10px; right: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; pointer-events: none; }
+  #artGrid.bento .card .cap b { background: #000; border: 2px solid #fff; padding: 4px 9px; font-size: 14px; }
+  #artGrid.bento .card.big .cap b { font-size: clamp(16px, 2vw, 26px); padding: 6px 12px; }
+  #artGrid.bento .card .cap small { background: #000; padding: 2px 7px; color: #cfcfcf; }
+  #artGrid.bento .card .cap, #artGrid.bento .card .n { z-index: 3; } /* above Compare swipe layers (z 2) */
+  #artGrid.bento .card .n { position: absolute; top: 10px; right: 12px; font-size: 11px; background: #000; padding: 2px 6px; color: #bdbdbd; letter-spacing: .08em; }
+  #artGrid.bento .card:hover .cap b, #artGrid.bento .card:focus-visible .cap b { background: #fff; color: #000; }
+  @media (max-width: 820px) { #artGrid.bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 42vw; gap: 10px; } }
+  @media (max-width: 480px) { #artGrid.bento { grid-template-columns: 1fr; grid-auto-rows: 64vw; } #artGrid.bento .card.big, #artGrid.bento .card.wide { grid-column: span 1; } #artGrid.bento .card.big { grid-row: span 2; } }
+  @media (prefers-reduced-motion: reduce) { #art .card .thumb canvas, #art .card .thumb img { transition: none; } }
+  .grid.more { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 18px 14px; }
+  .grid.more .card b { font-size: 13px; }
+
+  /* "Cover:" thumbnails (img/<slug>/cover-*.jpg) are designed images on black: show them whole */
+  .thumb.spr { background: #000; }
+  .thumb.spr > img { visibility: hidden; }
+  .thumb.spr .sprcv { position: absolute; inset: 0; width: 100%; height: 100% !important; opacity: 1 !important; z-index: 1; }
+  .plinks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .plinks a { text-decoration: none; border: 2px solid currentColor; font-weight: 700; padding: 10px 14px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  .plinks a:hover, .plinks a:focus-visible { background: #000; color: #fff; border-color: #000; }
+  .thumb.whole img { object-fit: contain !important; background: #000; }
+  #work .card .thumb.pic img { opacity: 1; object-fit: cover; transition: transform .5s; }
+  #work .card:hover .thumb.pic img { transform: scale(1.05); }
+  /* WORK: More work cards without a picture get an ASCII placeholder */
+  .thumb.txt { display: grid; place-items: center; background: #0b0b0b; }
+  .thumb.txt pre { margin: 0; font-size: 11px; line-height: 1.2; color: #8a8a8a; white-space: pre; }
+  .card:hover .thumb.txt pre, .card:focus-visible .thumb.txt pre { color: #fff; }
+  .card .soon { color: #000; background: #fff; padding: 0 5px; margin-left: 6px; }
+
+  /* PROJECT PAGE (its own view: #/work/<slug>) */
+  #workView { display: none; padding-top: 110px; }
+  #workView:focus { outline: none; }
+  body.work-mode #workView { display: block; }
+  body.work-mode .hero, body.work-mode #work, body.work-mode #highlights, body.work-mode #art, body.work-mode #video, body.work-mode #about, body.work-mode #tools { display: none; }
+  #workView .whero { margin-bottom: 28px; }
+  #workView .whero:empty { display: none; }
+  .desc ul, .ctext ul { margin: 0 0 10px; padding: 0; list-style: none; }
+  .desc li, .ctext li { padding-left: 18px; text-indent: -18px; margin-bottom: 4px; }
+  .desc li::before, .ctext li::before { content: "- "; white-space: pre; }
+  .desc p b, .desc li b { display: inline; font-size: inherit; letter-spacing: 0; margin: 0; }
+  .chap { margin-top: 72px; }
+  .chap-h { display: flex; align-items: baseline; gap: 18px; border-top: 1px solid var(--line); padding-top: 18px; margin-bottom: 20px; }
+  .chap-h .n { color: #8a8a8a; font-size: 13px; }
+  .chap-h h3 { margin: 0; font-size: clamp(26px, 4.4vw, 58px); line-height: 1; font-weight: 800; letter-spacing: -.01em; text-transform: uppercase; }
+  .ctext { max-width: 760px; font-size: 15.5px; color: #e6e6e6; margin-bottom: 26px; }
+  .ctext p { margin: 0 0 14px; }
+  .ctext li b, .ctext p b { color: #fff; }
+  .playbox { border: 3px solid #fff; padding: 18px 22px; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  .playbox button { border: 1px solid #fff; padding: 10px 16px; min-height: 40px; text-transform: uppercase; letter-spacing: .08em; font-size: 13px; }
+  .playbox button:hover, .playbox button:focus-visible { background: #fff; color: #000; }
+  .playbox a { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; } .playbox a:hover, .playbox a:focus-visible { background: #fff; color: #000; }
+  .playbox iframe { width: min(100%, 420px); aspect-ratio: 9 / 16; max-height: 82vh; border: 3px solid #fff; background: #111; }
+  .soonbox { border: 3px dashed #fff; padding: 26px 22px; margin: 8px 0 28px; max-width: 760px; }
+  .soonbox pre { margin: 0 0 14px; color: #8a8a8a; font-size: 12px; line-height: 1.2; }
+  .soonbox b { letter-spacing: .1em; font-size: 13px; }
+
+  /* VIDEO SECTION */
+  .vids { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr)); gap: 26px 22px; }
+  .vid { display: flex; flex-direction: column; gap: 8px; }
+  .vid .screen { position: relative; aspect-ratio: 16 / 9; border: 3px solid #fff; background: #111; overflow: hidden; }
+  .vid .screen button { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .vid .screen img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+  .vid .screen button:hover img, .vid .screen button:focus-visible img { transform: scale(1.03); }
+  .vid .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #fff; color: #000; font-weight: 800; padding: 10px 16px; letter-spacing: .08em; border: 2px solid #000; box-shadow: 0 0 0 2px #fff; }
+  .vid .screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .vid b { font-size: 17px; text-transform: uppercase; line-height: 1.25; }
+  .vid .row2 { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+  .vid .row2 a { color: #fff; text-decoration: none; border-bottom: 1px solid #fff; }
+  .vid .row2 a:hover, .vid .row2 a:focus-visible { background: #fff; color: #000; }
+
+  /* PIECE PAGE (its own view: #/art/<slug>) */
+  #pieceView { display: none; padding-top: 110px; }
+  #pieceView:focus { outline: none; }
+  body.piece-mode #pieceView { display: block; }
+  body.piece-mode .hero, body.piece-mode #work, body.piece-mode #highlights, body.piece-mode #art, body.piece-mode #video, body.piece-mode #about, body.piece-mode #tools { display: none; }
+  .back { display: inline-block; text-decoration: none; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; padding: 8px 0; margin-bottom: 18px; }
+  .back:hover, .back:focus-visible { background: #fff; color: #000; }
+  .piece-head { display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; }
+  .piece-head h2 { margin: 0; font-size: clamp(40px, 8vw, 112px); line-height: .92; font-weight: 800; letter-spacing: -.03em; text-transform: uppercase; overflow-wrap: anywhere; }
+  .piece-head .sprite { margin: 0 auto 0 0; width: clamp(200px, 26vw, 340px); }
+  .piece-head .sprite canvas { display: block; width: 100%; }
+  .piece-head .sprite figcaption { margin-top: 6px; font-size: 11px; letter-spacing: .08em; color: var(--dim); }
+  .piece-head .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+  .desc { background: #fff; color: #000; border: 3px solid #fff; padding: 18px 22px; max-width: 760px; margin-bottom: 28px; font-size: 15px; box-shadow: 8px 8px 0 #fff; outline: 3px solid #000; outline-offset: -6px; }
+  .desc b { display: block; font-size: 12px; letter-spacing: .1em; margin-bottom: 6px; }
+  .desc p { margin: 0 0 10px; } .desc p:last-child { margin: 0; }
+  .about { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; margin-bottom: 28px; }
+  .about .desc { margin-bottom: 0; flex: 1 1 460px; }
+  .facts { flex: 0 1 340px; border: 3px solid #fff; padding: 16px 18px; font-size: 13.5px; }
+  .facts b { display: block; font-size: 12px; letter-spacing: .1em; margin-bottom: 8px; }
+  .facts dl { margin: 0; } .facts dt { color: var(--dim); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; margin-top: 10px; } .facts dt:first-child { margin-top: 0; }
+  .facts dd { margin: 2px 0 0; }
+  .panel video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+  .panel.fit-full video { object-fit: contain; }
+  .panel.fit-crop video { max-width: none; inset: auto; }
+  .panel .clip { position: absolute; z-index: 3; right: 10px; top: 10px; background: #000; color: #fff; border: 1px solid #fff; padding: 2px 7px; font-size: 10.5px; letter-spacing: .1em; pointer-events: none; }
+  .comic .panel { cursor: zoom-in; } .comic .pc { cursor: ew-resize; }
+
+  /* LIGHTBOX (click any panel) */
+  .lb { position: fixed; inset: 0; z-index: 60; background: #000; display: none; grid-template-rows: auto 1fr auto; }
+  .lb.open { display: grid; }
+  .lb .top { display: flex; justify-content: space-between; align-items: center; padding: 14px clamp(12px, 3vw, 32px); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+  .lb button { border: 1px solid #fff; padding: 8px 12px; min-height: 40px; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; background: #000; }
+  .lb button:hover, .lb button:focus-visible { background: #fff; color: #000; }
+  .lb .stage { position: relative; display: grid; place-items: center; min-height: 0; padding: 0 clamp(8px, 7vw, 96px); }
+  .lb .stage img, .lb .stage video { max-width: 100%; max-height: 100%; object-fit: contain; display: block; border: 3px solid #fff; background: #111; }
+  .lb .prev, .lb .next { position: absolute; top: 50%; transform: translateY(-50%); }
+  .lb .prev { left: clamp(6px, 1.5vw, 24px); } .lb .next { right: clamp(6px, 1.5vw, 24px); }
+  .lb .cap { padding: 14px clamp(12px, 3vw, 32px) 20px; max-width: 900px; font-size: 13.5px; }
+  .lb .cap em { font-style: normal; font-weight: 800; letter-spacing: .1em; font-size: 12px; margin-right: 8px; }
+  body.lb-open { overflow: hidden; }
+
+  /* COMIC PANELS. Size = columns of 6; fit = how the image sits (set per image in the picker) */
+  .comic { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; align-items: start; }
+  .panel { position: relative; margin: 0; border: 3px solid #fff; overflow: hidden; background: #111; aspect-ratio: 4 / 3; }
+  .panel.fit-fill { align-self: stretch; width: 100%; }
+  .panel img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+  .panel.fit-full img { object-fit: contain; }
+  .panel.fit-crop img { max-width: none; inset: auto; }
+  .panel::after { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, #fff 1.1px, transparent 1.5px); background-size: 7px 7px; mix-blend-mode: overlay; opacity: .55; -webkit-mask-image: linear-gradient(135deg, transparent 45%, #000 100%); mask-image: linear-gradient(135deg, transparent 45%, #000 100%); }
+  .panel.dots-l::after { -webkit-mask-image: linear-gradient(225deg, transparent 50%, #000 100%); mask-image: linear-gradient(225deg, transparent 50%, #000 100%); }
+  .panel figcaption { --k: calc(var(--cs, 1) * var(--cm, 1)); --o: 12px; position: absolute; z-index: 4; left: var(--o); top: var(--o); max-width: min(78%, calc(340px * var(--cs, 1))); background: #fff; color: #000; border: 2px solid #000; box-shadow: 0 0 0 2px #fff; padding: calc(8px * var(--k)) calc(11px * var(--k)); font-size: max(9px, calc(12.5px * var(--k))); line-height: 1.45; }
+  .panel figcaption.cs-xs { --cs: .7; } .panel figcaption.cs-s { --cs: .85; } .panel figcaption.cs-l { --cs: 1.2; } .panel figcaption.cs-xl { --cs: 1.4; }
+  .panel figcaption.br { top: auto; left: auto; right: var(--o); bottom: var(--o); }
+  .panel figcaption em { font-style: normal; font-weight: 800; display: block; font-size: max(8px, calc(11px * var(--k))); letter-spacing: .1em; }
+  .s-big   { grid-column: span 4; }  .s-big.fit-fill   { aspect-ratio: 3 / 2; }
+  .s-tall  { grid-column: span 2; }  .s-tall.fit-fill  { aspect-ratio: 3 / 4; }
+  .s-half  { grid-column: span 3; }  .s-half.fit-fill  { aspect-ratio: 3 / 2; }
+  .s-wide  { grid-column: span 6; }  .s-wide.fit-fill  { aspect-ratio: 3 / 1; }
+  .s-third { grid-column: span 2; }  .s-third.fit-fill { aspect-ratio: 4 / 3; }
+  .slant { clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%); }
+  .slant figcaption { left: 14%; }
+
+  /* SWIPE COMPARE: dividers follow the mouse, each band shows another viewport pass */
+  .pc { justify-self: center; width: 100%; max-height: 86vh; cursor: ew-resize; touch-action: pan-y; }
+  .pc::after { display: none; }
+  .pc .layer { position: absolute; inset: 0; overflow: hidden; }
+  .pc .div { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: #fff; z-index: 2; pointer-events: none; }
+  .pc .chip { position: absolute; top: 14px; z-index: 3; transform: translateX(-50%); background: #000; color: #fff; border: 1px solid #fff; padding: 4px 8px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; pointer-events: none; }
+  .pc figcaption { top: auto; bottom: var(--o); }
+  .panel figcaption.cap-tl { top: var(--o); left: var(--o); right: auto; bottom: auto; }
+  .panel figcaption.cap-tr { top: var(--o); right: var(--o); left: auto; bottom: auto; }
+  .panel figcaption.cap-bl { bottom: var(--o); left: var(--o); right: auto; top: auto; }
+  .panel figcaption.cap-br { bottom: var(--o); right: var(--o); left: auto; top: auto; }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; margin-top: 28px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .pager a { display: flex; gap: 12px; padding: 22px 8px; text-decoration: none; text-transform: uppercase; letter-spacing: .06em; }
+  .pager a + a { justify-content: flex-end; text-align: right; border-left: 1px solid var(--line); }
+  .pager a:hover, .pager a:focus-visible { background: #fff; color: #000; }
+  .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .tools > div { padding: 22px 18px 24px; border-left: 1px solid var(--line); }
+  .tools > div:first-child { border-left: 0; padding-left: 8px; }
+  .tools small { display: block; color: #8a8a8a; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+  .tools ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .tools li { font-size: clamp(17px, 1.8vw, 24px); font-weight: 700; text-transform: uppercase; letter-spacing: -.005em; line-height: 1.15; }
+  @media (max-width: 820px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tools > div:nth-child(3) { border-left: 0; padding-left: 8px; } .tools > div:nth-child(n+3) { border-top: 1px solid var(--line); } }
+  footer .row .mail { display: inline-flex; align-items: center; gap: 14px; border: 1px solid #fff; padding: 12px 14px 12px 16px; font: inherit; font-size: 13px; letter-spacing: .06em; color: #fff; text-transform: none; cursor: pointer; }
+  footer .row .mail .ic { width: 16px; height: 16px; flex: none; padding-left: 12px; box-sizing: content-box; border-left: 1px solid #555; }
+  footer .row .mail .ok { display: none; font-size: 11px; letter-spacing: .1em; }
+  footer .row .mail.done .ic { display: none; } footer .row .mail.done .ok { display: inline; }
+  footer .row .mail:hover, footer .row .mail:focus-visible { background: #fff; color: #000; }
+  footer .row .mail:hover .ic { border-color: #000; }
+  footer .links { margin-top: 14px; }
+  footer { padding: 120px 0 56px; }
+  footer h2 { margin: 0 0 18px; font-size: clamp(36px, 7vw, 96px); font-weight: 800; line-height: .95; letter-spacing: -.03em; text-transform: uppercase; }
+  footer .row { display: flex; flex-wrap: wrap; gap: 10px 28px; text-transform: uppercase; font-size: 13px; letter-spacing: .06em; }
+  footer .row a { text-decoration: none; border: 1px solid #fff; padding: 12px 16px; }
+  footer .row a:hover, footer .row a:focus-visible { background: #fff; color: #000; }
+  .guyrow { display: flex; align-items: flex-end; gap: 6px; margin-top: 64px; }
+  .guyrow pre { margin: 0 !important; }
+  .bye { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding-bottom: 2px; color: #bdbdbd; font-size: 14px; }
+  #toTop { border: 1px solid #fff; color: #fff; padding: 6px 10px; font: inherit; font-size: 14px; cursor: pointer; }
+  #toTop:hover, #toTop:focus-visible { background: #fff; color: #000; }
+  .climber { position: fixed; z-index: 90; margin: 0; color: #fff; text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 6px #000; font-size: 14px; line-height: 1.15; pointer-events: none; white-space: pre; }
+  .rope { position: fixed; z-index: 89; top: 0; width: 0; border-left: 2px dashed #bdbdbd; pointer-events: none; }
+  footer pre { color: #bdbdbd; font-size: 14px; line-height: 1.15; margin: 64px 0 0; overflow: hidden; }
+  .bio { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px 56px; align-items: start; }
+  .bio h2 { margin: 0 0 18px; font-size: clamp(32px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -.02em; text-transform: uppercase; }
+  .bio p { margin: 0 0 14px; max-width: 640px; color: #e6e6e6; }
+  .bio-facts { margin: 0; border: 3px solid #fff; padding: 18px 20px; font-size: 13.5px; }
+  .bio-facts dt { color: var(--dim); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; margin-top: 12px; } .bio-facts dt:first-child { margin-top: 0; }
+  .bio-facts dd { margin: 3px 0 0; }
+  @media (max-width: 820px) { .bio { grid-template-columns: 1fr; } }
+
+  @media (max-width: 820px) {
+    .comic { grid-template-columns: minmax(0, 1fr); }
+    .comic .panel { grid-column: 1 / -1; }
+    .comic .panel.fit-fill:not(.s-tall) { aspect-ratio: 4 / 3; }
+    .slant { clip-path: none; }
+    .playbox { padding: 12px; } .playbox iframe { width: 100%; border-width: 2px; max-height: 78vh; }
+    .panel figcaption { --cm: .78; --o: 8px; max-width: min(70%, calc(260px * var(--cs, 1))); line-height: 1.35; }
+    .panel figcaption:not(.cs-l):not(.cs-xl) { box-shadow: 0 0 0 1px #fff; border-width: 1.5px; }
+    #pieceView { padding-top: 160px; }
+    .work a { grid-template-columns: 44px 1fr; }
+    .work .meta { grid-column: 2; text-align: left; }
+    .id { bottom: 40px; }
+    .switch { top: 120px; }
+  }
+
+  /* MOBILE HERO: art gets its own space under the nav, info stacks below it */
+  @media (max-width: 700px) {
+    .hero { height: auto; min-height: 0; display: flex; flex-direction: column; padding-top: var(--navh, 96px); }
+    .hero canvas { position: relative; inset: auto; height: max(120vw, 58svh); flex: none;
+      -webkit-mask-image: linear-gradient(#000 78%, transparent); mask-image: linear-gradient(#000 78%, transparent); }
+    .id { position: relative; left: auto; bottom: auto; max-width: none; margin-top: -56px; padding: 0 16px 48px; gap: 8px; }
+    .id pre { font-size: 12px; padding: 8px 10px 5px; }
+    .id .roles { font-size: 19px; padding: 5px 10px; }
+    .id .motto { font-size: 13px; padding: 3px 10px; }
+    .id .info { font-size: 10.5px; letter-spacing: .04em; gap: 5px; }
+    .id .info .row { gap: 4px; }
+    .id .info span { padding: 3px 6px; }
+    .id .now { font-size: 12px; }
+    .id .now .d { display: block; width: 100%; font-size: 11px; }
+  }
+  @media (hover: none) { .switch .hint { display: none; } }
+  @media (max-width: 700px) {
+    nav { padding: 10px 14px 14px; gap: 2px 12px; font-size: 11.5px; letter-spacing: .03em; }
+    nav ul { gap: 0 12px; }
+    nav a { padding: 6px 0; }
+    nav .cta { padding: 4px 8px; }
+  }
+  /* little guys near the right edge: speech bubble opens to the left on small screens */
+  @media (max-width: 820px) {
+    body .buddy .say { left: auto; right: 100%; margin-left: 0; margin-right: 4px; }
+    body .buddy.on-rule { right: 28px; }
+  }
+
+  /* BACKGROUND ASCII: faint drifting field behind everything, scrolls slower than the page */
+  #bgAscii { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
+  main, nav, .hero { position: relative; z-index: 1; }
+  nav { position: fixed; z-index: 20; }
+  .rule i { font-style: normal; color: #fff; }
+  .rule .tr { color: #8a8a8a; }
+
+  /* LITTLE GUYS */
+  .buddy { position: absolute; z-index: 6; margin: 0; font: 400 13px/1.1 'JetBrains Mono', monospace; white-space: pre; color: #fff; cursor: pointer; user-select: none; transition: transform .18s cubic-bezier(.3,1.6,.5,1); }
+  .buddy.jump { transform: translateY(-14px); }
+  .buddy .say { position: absolute; left: 100%; top: -6px; margin-left: 4px; background: #fff; color: #000; padding: 2px 7px; font-size: 11px; white-space: nowrap; letter-spacing: .04em; pointer-events: none; }
+  .facts-wrap { position: relative; margin-top: 56px; }
+  .facts-wrap .buddy { right: 26px; top: 3px; transform-origin: bottom; translate: 0 -100%; }
+  .facts-wrap .buddy.jump { transform: translateY(-14px); }
+  #video { position: relative; }
+  .buddy.on-rule { top: 66px; left: calc(clamp(16px, 3vw, 40px) + 410px); translate: 0 -100%; }
+  @media (max-width: 820px) { .buddy.on-rule { left: auto; right: clamp(16px, 3vw, 40px); } }
+  .peek { position: absolute; z-index: 30; width: 56px; height: 62px; overflow: hidden; pointer-events: none; }
+  .peek pre { position: absolute; left: 0; bottom: -2px; margin: 0; font: 400 13px/1.1 'JetBrains Mono', monospace; color: #fff; text-shadow: 0 0 0 #000; transform: translateY(100%); transition: transform .16s cubic-bezier(.3,1.5,.5,1); }
+  .peek.up pre { transform: translateY(0); }
+  .peek.press pre { transform: translateY(5px); }
+  .poked { transform: translateY(2px); transition: transform .08s; }
+  @media (prefers-reduced-motion: reduce) { nav .logo span { animation: none; } }
+</style>
+</head>
+<body>
+<canvas id="bgAscii" aria-hidden="true"></canvas>
+
+<nav aria-label="Main">
+  <a class="logo" href="#top">Dean Kelso</a>
+  <ul>
+    <li><a href="#work">( Work )</a></li>
+    <li><a href="#art">( Art )</a></li>
+    <li><a href="#video">( Video )</a></li>
+    <li><a href="#about">( About )</a></li>
+    <li><a class="cta" href="#contact">Resume ↓</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="ascii" aria-hidden="true"></canvas>
+  <p class="sr" id="heroAlt">Live ASCII rendering of Dean's 3D character art.</p>
+
+  <div class="switch">
+    <span class="hint" aria-hidden="true">( move your mouse )</span>
+  </div>
+
+  <div class="id">
+    <h1 class="sr">Dean Kelso – Digital Creator / Designer. I learn it, then I build it: Game Dev, 3D, Video Editing.</h1>
+<pre aria-hidden="true">██████╗ ███████╗ █████╗ ███╗   ██╗    ██╗  ██╗███████╗██╗     ███████╗ ██████╗
+██╔══██╗██╔════╝██╔══██╗████╗  ██║    ██║ ██╔╝██╔════╝██║     ██╔════╝██╔═══██╗
+██║  ██║█████╗  ███████║██╔██╗ ██║    █████╔╝ █████╗  ██║     ███████╗██║   ██║
+██║  ██║██╔══╝  ██╔══██║██║╚██╗██║    ██╔═██╗ ██╔══╝  ██║     ╚════██║██║   ██║
+██████╔╝███████╗██║  ██║██║ ╚████║    ██║  ██╗███████╗███████╗███████║╚██████╔╝
+╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝</pre>
+    <div class="roles" aria-hidden="true">DIGITAL CREATOR / DESIGNER</div>
+    <div class="motto" aria-hidden="true">( I learn it, then I build it )</div>
+    <div class="info" aria-hidden="true">
+      <div class="row"><span class="lbl">I do</span><span>( Game Dev )</span><span>( 3D )</span><span>( Video editing )</span></div>
+      <div class="row"><span class="lbl">Based</span><span>( Hillsboro, OR )</span><span class="open">Open to work</span></div>
+    </div>
+    <div class="now"><span class="k">NOW BUILDING</span> 1v1 Me-Bro <span class="d">· competitive party game in Godot · second playtest coming up</span><i aria-hidden="true">_</i></div>
+  </div>
+
+</header>
+
+<main>
+  <section class="wrap" id="work" aria-labelledby="workH">
+    <div class="rule" aria-hidden="true">+------------------------( <b>SELECTED WORK</b> )--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</div>
+    <h2 class="sr" id="workH">Selected work</h2>
+    <div class="work">
+      <a href="#/work/lost-game-revival"><span class="n">( 01 )</span><div><h3>Lost Game Revival</h3><p>Tracked down a Kindle game my girlfriend played as a kid, got the files from the developer, and rebuilt it for the web with online high scores in under an hour.</p></div><span class="meta">Game preservation<br>( 2026 )</span></a>
+      <a href="#/work/1v1-me-bro"><span class="n">( 02 )</span><div><h3>1v1 Me-Bro</h3><p>Competitive party game: a chain of quick mini-games, tuned through real playtests.</p></div><span class="meta">Godot · in progress<br>( 2026 )</span></a>
+      <a href="#/work/incremental-mobile-game"><span class="n">( 03 )</span><div><h3>Incremental mobile game</h3><p>A mobile incremental game: upgrade loops, unlocks and long-term progression, built for quick sessions on your phone.</p></div><span class="meta">Mobile · in progress<br>( 2026 )</span></a>
+      <a href="#/work/timberfall"><span class="n">( 04 )</span><div><h3>Timberfall</h3><p>UE5 tree-cutting system with Chaos physics, procedural tools, and every asset in the game.</p></div><span class="meta">UE5 systems<br>( 2025 )</span></a>
+    </div>
+    <button type="button" class="more-t" id="moreWH" aria-expanded="false" aria-controls="moreWGrid"><span class="ln l" aria-hidden="true"></span><span class="lab">( MORE WORK <span class="n">· 3</span> ▼ )</span><span class="ln r" aria-hidden="true"></span></button>
+    <div class="grid more" id="moreWGrid" hidden>
+      <a class="card" href="#/art/short-king-2"><div class="thumb spr" data-sprite="short-king-2" aria-hidden="true"></div><b>Short King 2</b><small>Game jam · GMTK 2026</small></a>
+      <a class="card" href="#/work/portfolio-site" data-blurb="This site. Hand-built from scratch: black and white, ASCII art everywhere, and a Python script that turns my art folders into the pages you're looking at." data-meta="HTML · CSS · JavaScript · Python|( 2026 )"><div class="thumb txt" aria-hidden="true"><pre> ___________
+|[]  DEAN   |
+|  KELSO____|
+| ( o_o )   |
+|___________|</pre></div><b>This portfolio</b><small>Web · 2026<span class="soon">soon</span></small></a>
+      <a class="card" href="#/work/portfolio-picker" data-blurb="The Portfolio Picker website project. I've been working with AI and learning all I can about it, using it to code things and make small Python apps that help my workflow and speed me up. The picker is how I choose, crop and caption every image on this site." data-meta="AI · Python · JavaScript|( 2026 )"><div class="thumb txt" aria-hidden="true"><pre>  .--------.
+  | IMG  ✓ |
+  | IMG  ✓ |
+  | IMG  _ |
+  '--------'
+   picker.py</pre></div><b>Portfolio Picker</b><small>Tool · 2026<span class="soon">soon</span></small></a>
+    </div>
+  </section>
+
+  <section class="wrap" id="art" aria-labelledby="artH">
+    <div class="rule" aria-hidden="true">+------------------------( <b>ART</b> )------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</div>
+    <h2 class="sr" id="artH">Art</h2>
+    <div class="chips" role="group" aria-label="Filter art by type"></div>
+    <div class="grid" id="artGrid"></div>
+    <button type="button" class="more-t" id="moreH" aria-expanded="false" aria-controls="moreGrid" hidden><span class="ln l" aria-hidden="true"></span><span class="lab">( MORE WORK <span class="n"></span> ▼ )</span><span class="ln r" aria-hidden="true"></span></button>
+    <div class="grid more" id="moreGrid" hidden></div>
+  </section>
+
+  <section class="wrap" id="pieceView" aria-labelledby="pieceH" tabindex="-1">
+    <a class="back" href="#art">&lt;-- ( All art )</a>
+    <div class="piece-head"><h2 id="pieceH">Loading…</h2><div class="meta"></div></div>
+    <div class="about">
+      <div class="desc"><b>( ABOUT THIS PIECE )</b><div class="dtext"></div></div>
+      <aside class="facts" aria-label="Quick facts" hidden><b>( QUICK FACTS )</b><dl></dl></aside>
+    </div>
+    <div class="comic"></div>
+    <div class="pager" role="navigation" aria-label="More art"></div>
+  </section>
+  <section class="wrap" id="workView" aria-labelledby="workVH" tabindex="-1">
+    <a class="back" href="#work">&lt;-- ( All work )</a>
+    <div class="piece-head"><h2 id="workVH">Loading…</h2><div class="meta"></div></div>
+    <div class="comic whero"></div>
+    <div class="about">
+      <div class="desc"><b>( THE PROJECT )</b><div class="dtext"></div></div>
+      <aside class="facts" aria-label="Quick facts" hidden><b>( QUICK FACTS )</b><dl></dl></aside>
+    </div>
+    <div class="playbox" hidden></div>
+    <div class="soonbox" hidden><pre aria-hidden="true">  _______
+ |  ___  |
+ | |   | |   building...
+ | |___| |   _
+ |_______|  ( )
+   _|_|_    /|\</pre><b>( CASE STUDY COMING SOON )</b></div>
+    <div class="chapters"></div>
+    <div class="pager" role="navigation" aria-label="More work"></div>
+  </section>
+
+  <section class="wrap" id="video" aria-label="Video">
+    <span class="buddy on-rule" data-say="watch these|10k views!|sit with me|nice scroll" aria-hidden="true"></span>
+    <div class="rule" aria-hidden="true">+------------------------( <b>VIDEO · ~10K VIEWS</b> )--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</div>
+    <div class="vids" id="vids"></div>
+  </section>
+
+  <section class="wrap" id="tools" aria-labelledby="toolsH">
+    <div class="rule" aria-hidden="true">+------------------------( <b>TOOLS</b> )------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</div>
+    <h2 class="sr" id="toolsH">Tools</h2>
+    <div class="tools">
+      <div><small>( Engines )</small><ul><li>Unreal Engine 5</li><li>Godot</li></ul></div>
+      <div><small>( 3D + art )</small><ul><li>Blender</li><li>Substance Painter</li><li>Photoshop</li></ul></div>
+      <div><small>( Video )</small><ul><li>Premiere Pro</li><li>DaVinci Resolve</li></ul></div>
+      <div><small>( Code )</small><ul><li>UE5 Blueprints</li><li>GDScript</li><li>Python</li><li>JavaScript</li></ul></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="about" aria-labelledby="aboutH">
+    <div class="rule" aria-hidden="true">+------------------------( <b>ABOUT</b> )----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</div>
+    <div class="bio">
+      <div>
+        <h2 id="aboutH">Hi, I'm Dean</h2>
+        <p>I'm a digital creator and designer from Hillsboro, Oregon. For the past 6+ years I've taken on whatever a project needed: 3D characters and props in Blender, game systems in Unreal Engine 5 and Godot, thumbnails and branding in Photoshop, and video edits in DaVinci Resolve.</p>
+        <p>I've worked with 10+ clients, made all the art for a game jam game in under 4 days, and brought back an old Kindle game my girlfriend loved as a kid. When something breaks, I dig until I know why.</p>
+        <p>My rule is simple: if I don't know how to do something yet, I learn it, then I build it. Right now that means three game prototypes, including 1v1 Me-Bro, a competitive party game I'm playtesting with friends, plus an incremental mobile game.</p>
+      </div>
+      <div class="facts-wrap"><span class="buddy" data-say="hi!|hire dean|ow|23s cube btw|( ._.)|i live here now" aria-hidden="true"></span>
+      <dl class="bio-facts">
+        <dt>( Currently )</dt><dd>Building 3 game prototypes + an incremental mobile game · open to work</dd>
+        <dt>( Based in )</dt><dd>Hillsboro, OR · open to remote</dd>
+        <dt>( Off the clock )</dt><dd>Grandmaster in Overwatch 2 · top 500 Monk in WoW (NA) · 23-second Rubik's cube solve</dd>
+      </dl></div>
+    </div>
+  </section>
+
+  <footer class="wrap" id="contact">
+    <div class="rule" aria-hidden="true" style="padding-top:0">+------------------------( <b>REACH OUT</b> )--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</div>
+    <h2>Let's make<br>something_</h2>
+    <div class="row">
+      <button type="button" class="mail" id="copyMail" aria-label="Copy email address dean.r.kelso@gmail.com"><span class="t">dean.r.kelso@gmail.com</span><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 10.5H2.5v-8h8V3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="ok" aria-hidden="true">COPIED ✓</span></button>
+      <a href="#">Resume (PDF)</a>
+    </div>
+    <div class="row links">
+      <a href="https://www.linkedin.com/in/dean-kelso-6608a7400/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://itch.io/profile/sph00n" target="_blank" rel="noopener">itch.io ↗</a>
+      <a href="https://www.youtube.com/@sphoon7595" target="_blank" rel="noopener">YouTube ↗</a>
+    </div>
+<div class="guyrow"><pre class="waver" aria-hidden="true">    _
+   (_)/
+   /|
+   / \</pre><div class="bye"><span>thanks for scrolling.</span><button type="button" id="toTop" aria-label="Back to top">( ↑ )</button></div></div>
+  </footer>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Zoomed image">
+  <div class="top"><span class="count"></span><button type="button" class="close">( Close ✕ )</button></div>
+  <div class="stage"><button type="button" class="prev" aria-label="Previous">&lt;--</button><button type="button" class="next" aria-label="Next">--&gt;</button></div>
+  <div class="cap"></div>
+</div>
+
+<script>
+(() => {
+  const RAMP = " .,-:;=+*cxo/%#@";
+  const N = RAMP.length;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FONT = "'JetBrains Mono', ui-monospace, monospace";
+
+  // fetch -> ImageBitmap never taints the canvas, so pixel sampling works in any frame
+  async function loadImg(src) {
+    try { return await createImageBitmap(await (await fetch(src)).blob()); }
+    catch (e) { return new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; }); }
+  }
+  function fitRect(img, W, H, mode, ax, ay) {
+    const s = mode === 'cover' ? Math.max(W / img.width, H / img.height) : Math.min(W / img.width, H / img.height);
+    const w = img.width * s, h = img.height * s;
+    return { x: (W - w) * ax, y: (H - h) * ay, w, h };
+  }
+
+  // Thumbnails: dense ASCII, each character in the art's own color
+  function asciiThumb(img, canvas) {
+    const dpr = Math.min(devicePixelRatio || 1, 2) * 1.5;
+    const W = canvas.clientWidth, H = canvas.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    const ctx = canvas.getContext('2d'); ctx.scale(dpr, dpr);
+    const fs = 4.2; ctx.font = '700 ' + fs + 'px ' + FONT; ctx.textBaseline = 'top';
+    const cw = ctx.measureText('M').width, ch = fs * 1.02;
+    const cols = Math.ceil(W / cw), rows = Math.ceil(H / ch);
+    const sc = document.createElement('canvas'); sc.width = cols; sc.height = rows;
+    const sx = sc.getContext('2d', { willReadFrequently: true });
+    const r = fitRect(img, W, H, 'cover', .5, .5);
+    sx.drawImage(img, r.x / cw, r.y / ch, r.w / cw, r.h / ch);
+    const d = sx.getImageData(0, 0, cols, rows).data;
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+    // auto-levels per image so dark pieces still read
+    const Ls = [];
+    for (let i = 0; i < d.length; i += 4) Ls.push((0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255);
+    const sorted = Ls.slice().sort((a, b) => a - b);
+    const lo = sorted[(sorted.length * .05) | 0], hi = Math.max(lo + .15, sorted[(sorted.length * .985) | 0]);
+    const gain = 1 / hi;
+    for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+      const i = (y * cols + x) * 4, R = d[i], G = d[i + 1], B = d[i + 2];
+      const l = Math.max(0, (Ls[i / 4] - lo) / (hi - lo));
+      const k = Math.min(N - 1, Math.floor(Math.pow(l, .75) * N));
+      if (!k) continue;
+      const lift = v => Math.min(255, v * gain * 1.2 + 25) | 0;
+      ctx.fillStyle = `rgb(${lift(R)},${lift(G)},${lift(B)})`;
+      ctx.fillText(RAMP[k], x * cw, y * ch);
+    }
+  }
+
+  // ---------- HERO ----------
+  const canvas = document.getElementById('ascii');
+  const ctx = canvas.getContext('2d');
+  const sc = document.createElement('canvas');
+  const sx = sc.getContext('2d', { willReadFrequently: true });
+
+  const S = { src: 'img/knight-hero.jpg', mode: 'cover', ax: 0, ay: .35, gamma: .8, boost: 1.1, floor: .15 };
+  // DETAIL: Dean picked "fine" (7px). "normal" (11px) was the first version he liked.
+  const DETAIL = { normal: 11, fine: 7 };
+  let FS = DETAIL.fine;
+  let img = null, W = 0, H = 0, dpr = 1, cw = 0, ch = 0, cols = 0, rows = 0;
+  let mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999, px: 0, py: 0, in: false, a: 0 };
+  let start = performance.now(), visible = true, raf = 0;
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    FS = W < 700 ? 6 : DETAIL.fine;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.font = FS + 'px ' + FONT; ctx.textBaseline = 'top';
+    cw = ctx.measureText('M').width; ch = FS * 1.08;
+    cols = Math.ceil(W / cw) + 1; rows = Math.ceil(H / ch) + 1;
+    sc.width = cols; sc.height = rows;
+  }
+  const radius = () => 55;   // small: only the characters right under the cursor shimmer
+
+  function frame(now) {
+    raf = 0;
+    if (!img) return;
+    mouse.x += (mouse.tx - mouse.x) * 0.2; mouse.y += (mouse.ty - mouse.y) * 0.2;
+    mouse.a += ((mouse.in ? 1 : 0) - mouse.a) * 0.12;          // ripple fades in/out
+    const tpx = mouse.in ? (mouse.tx / W - .5) : 0, tpy = mouse.in ? (mouse.ty / H - .5) : 0;
+    mouse.px += (tpx - mouse.px) * 0.06; mouse.py += (tpy - mouse.py) * 0.06;
+    const par = 26;
+    const r = fitRect(img, W + par * 2, H + par * 2, S.mode, W / H < 1.3 ? .41 : S.ax, W / H < 1.3 ? .15 : S.ay);   // narrow box: center on the face
+    r.x += -par - mouse.px * par; r.y += -par - mouse.py * par;
+
+    sx.clearRect(0, 0, cols, rows);
+    sx.drawImage(img, r.x / cw, r.y / ch, r.w / cw, r.h / ch);
+    const d = sx.getImageData(0, 0, cols, rows).data;
+
+    const t = (now - start) / 1000;
+    const intro = reduce ? 1 : Math.min(1, t / 1.1);
+    const R = radius() * Math.max(.001, mouse.a), R2 = R * R;
+    const scan = reduce ? -99 : ((t * 9) % (rows + 30)) - 15;
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#fff';
+    for (let y = 0; y < rows; y++) {
+      let s = '';
+      const py = y * ch + ch / 2, dy = py - mouse.y;
+      const sb = Math.max(0, 1 - Math.abs(y - scan) / 3) * 0.12;
+      for (let x = 0; x < cols; x++) {
+        const i = (y * cols + x) * 4;
+        let l = (0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255;
+        l = Math.max(0, (l - S.floor) / (1 - S.floor));
+        l = Math.pow(l, S.gamma) * S.boost + (l > 0.04 ? sb : 0);
+        const dx = x * cw + cw / 2 - mouse.x, q = (dx * dx + dy * dy) / R2;
+        let k;
+        if (mouse.a > .02 && q < 1) {
+          // same shimmer + scanline glow as the background, but only near the cursor
+          const w = (1 - q) * mouse.a;
+          l += (l > 0.04 ? .12 : 0) * w;
+          k = Math.max(0, Math.min(N - 1, Math.floor(l * N)));
+          if (k > 0 && Math.random() < .35 * w) k = Math.max(1, Math.min(N - 1, k + (Math.random() < .5 ? -1 : 1)));
+          s += RAMP[k];
+          continue;
+        }
+        k = Math.floor(l * N); if (k < 0) k = 0; if (k > N - 1) k = N - 1;
+        if (!reduce && k > 0 && Math.random() < 0.012) k = Math.max(1, Math.min(N - 1, k + (Math.random() < .5 ? -1 : 1)));
+        if (intro < 1 && Math.random() > intro * intro) k = k > 0 || Math.random() < .25 ? (Math.random() * N) | 0 : 0;
+        s += RAMP[k];
+      }
+      ctx.fillText(s, 0, y * ch);
+    }
+
+
+    if (!reduce && visible) raf = requestAnimationFrame(frame);
+  }
+  const kick = () => { if (!raf && visible) raf = requestAnimationFrame(frame); };
+
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('pointermove', e => {
+    const b = canvas.getBoundingClientRect();
+    mouse.tx = e.clientX - b.left; mouse.ty = e.clientY - b.top;
+    if (!mouse.in) { mouse.x = mouse.tx; mouse.y = mouse.ty; }
+    mouse.in = true; kick();
+  });
+  hero.addEventListener('pointerleave', () => { mouse.in = false; kick(); });
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; kick(); }).observe(hero);
+  addEventListener('resize', () => { resize(); kick(); fitName(); });
+  // phones: size the DEAN KELSO figlet to exactly fill the screen width, whatever font the phone draws it with
+  // (scaled with a transform, not font-size: Android web views won't draw text under 8px, which made "KELSO" overflow)
+  function fitName() {
+    const pre = document.querySelector('.id pre'); if (!pre) return;
+    pre.style.transform = pre.style.marginRight = pre.style.marginBottom = '';
+    if (innerWidth > 700) return;
+    const w = pre.offsetWidth, h = pre.offsetHeight, avail = document.documentElement.clientWidth - 32;
+    if (!w) return;
+    const k = avail / w;
+    pre.style.transformOrigin = '0 0'; pre.style.transform = 'scale(' + k + ')';
+    pre.style.marginRight = (w * k - w) + 'px'; pre.style.marginBottom = (h * k - h + 2) + 'px';
+  }
+  // keep the art just under the nav, even when the nav wraps
+  { const nv = document.querySelector('nav'), setH = () => document.documentElement.style.setProperty('--navh', nv.offsetHeight + 'px');
+    setH(); new ResizeObserver(() => { setH(); resize(); kick(); }).observe(nv); }
+
+
+  fitName();
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(async () => {
+    resize(); fitName();
+    img = await loadImg(S.src);
+    start = performance.now(); kick();
+    document.querySelectorAll('.strip .thumb').forEach(async t => {
+      const im = t.querySelector('img');
+      const c = document.createElement('canvas'); c.setAttribute('aria-hidden', 'true'); t.appendChild(c);
+      try { asciiThumb(await loadImg(im.getAttribute('src')), c); } catch (e) { c.remove(); im.style.opacity = 1; }
+    });
+  });
+
+  // ---------- LAYOUT TOKEN: "{fill 50,30 zoom 1.4 half}" / "{full big}" / "{crop 10,5,80,90 wide}" ----------
+  // Same parser lives in tools/picker.html. Keep them in step.
+  const SIZES = ['big', 'tall', 'half', 'wide', 'third'];
+  function parseLayout(s) {
+    const L = { fit: 'fill', x: 50, y: 50, z: 1, crop: null, size: 'auto', cap: '', capSize: '' };
+    const w = (s || '').trim().toLowerCase().split(/\s+/).filter(Boolean);
+    for (let i = 0; i < w.length; i++) {
+      const t = w[i];
+      if (t === 'fill' || t === 'full' || t === 'crop') { L.fit = t; L.fitSet = true; }
+      else if (SIZES.includes(t) || t === 'auto') L.size = t;
+      else if (/^note-(tl|tr|bl|br|off)$/.test(t)) L.cap = t.slice(5);
+      else if (/^note-(xs|s|m|l|xl)$/.test(t)) L.capSize = t === 'note-m' ? '' : t.slice(5);
+      else if (t === 'zoom' && w[i + 1]) L.z = Math.max(1, Math.min(4, parseFloat(w[++i]) || 1));
+      else if (/^[\d.]+(,[\d.]+)+$/.test(t)) {
+        const n = t.split(',').map(Number);
+        if (n.length >= 4) L.crop = n.slice(0, 4); else { L.x = n[0]; L.y = n[1]; }
+      }
+    }
+    if (L.fit === 'crop' && !L.crop) L.fit = 'full';
+    return L;
+  }
+  // splits "File.png {..}" -> ['File.png', layout]
+  function splitHead(head) {
+    const m = head.match(/\s*\{([^}]*)\}\s*$/);
+    return m ? [head.slice(0, m.index).trim(), parseLayout(m[1])] : [head.trim(), parseLayout('')];
+  }
+  // put an <img> into a box according to the layout; box aspect is set by the caller
+  function placeImg(img, L) {
+    if (L.fit === 'crop') {
+      const [x, y, w, h] = L.crop;
+      Object.assign(img.style, { width: 10000 / w + '%', height: 10000 / h + '%', left: -x / w * 100 + '%', top: -y / h * 100 + '%' });
+    } else if (L.fit === 'fill') {
+      img.style.objectPosition = L.x + '% ' + L.y + '%';
+      if (L.z > 1) { img.style.transform = 'scale(' + L.z + ')'; img.style.transformOrigin = L.x + '% ' + L.y + '%'; }
+    }
+  }
+  const isVid = f => /\.(mov|mp4|webm|mkv|m4v)$/i.test(f);
+  function shapeFromImg(fig, img, L, maxVh) {
+    const set = () => {
+      const iw = img.naturalWidth || img.videoWidth, ih = img.naturalHeight || img.videoHeight; if (!iw) return;
+      const r = L.fit === 'crop' ? (L.crop[2] * iw) / (L.crop[3] * ih) : iw / ih;
+      fig.style.aspectRatio = r;
+      if (maxVh) fig.style.width = `min(100%, calc(${maxVh}vh * ${r}))`;
+    };
+    if (img.tagName === 'VIDEO') { img.readyState >= 1 ? set() : img.addEventListener('loadedmetadata', set, { once: true }); }
+    else img.complete ? set() : img.addEventListener('load', set, { once: true });
+  }
+  // muted looping clip that only plays while on screen
+  const clipIO = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting && !reduce) v.play().catch(() => {}); else v.pause(); }), { threshold: .2 });
+  function clipEl(srcMp4) {
+    const v = document.createElement('video');
+    Object.assign(v, { muted: true, loop: true, playsInline: true, preload: 'metadata' });
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+    v.poster = srcMp4.replace(/\.mp4$/, '.jpg'); v.src = srcMp4;
+    clipIO.observe(v);
+    return v;
+  }
+
+  // ---------- .md parsing (Images: "file {layout} - (Label) note") ----------
+  const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  // "## Name" lines in Description: and Images: split a project into chapters
+  function parseMd(md) {
+    const meta = {}, top = { desc: [], images: [] }, chapters = []; let mode = 'meta', dc = top, ic = top;
+    const chap = name => { let c = chapters.find(x => x.name === name); if (!c) { c = { name, desc: [], images: [] }; chapters.push(c); } return c; };
+    for (const raw of md.split(/\r?\n/)) {
+      const t = raw.trim();
+      if (/^description:/i.test(t)) { mode = 'desc'; continue; }
+      if (/^images:/i.test(t)) { mode = 'img'; continue; }
+      const h = mode !== 'meta' && t.match(/^#{1,3}\s+(.+)$/);
+      if (h) { if (mode === 'desc') dc = chap(h[1].trim()); else ic = chap(h[1].trim()); continue; }
+      const desc = dc.desc, images = ic.images;
+      if (mode === 'meta' && t.includes(':')) { const i = t.indexOf(':'); meta[t.slice(0, i).trim().toLowerCase()] = t.slice(i + 1).trim(); }
+      else if (mode === 'desc') desc.push(t);
+      else if (mode === 'img' && t) {
+        const i = t.indexOf(' - '); const [file, layout] = splitHead(i < 0 ? t : t.slice(0, i)); let note = i < 0 ? '' : t.slice(i + 3).trim();
+        let label = ''; const m = note.match(/^\(([^)]*)\)\s*/); if (m) { label = m[1]; note = note.slice(m[0].length); }
+        if (/^compare:/i.test(file)) {
+          const layers = file.slice(8).split('|').map(p => { const mm = p.trim().match(/^(.*?)\s*(?:\[([^\]]*)\])?$/); return { file: mm[1].trim(), name: (mm[2] || '').trim() }; });
+          images.push({ compare: layers, label, note, layout });
+        } else images.push({ file, label, note, layout });
+      }
+    }
+    const blocks = d => d.join('\n').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean).map(p => {
+      const ls = p.split(/\s*\n\s*/);
+      return ls.every(l => /^[-*]\s/.test(l)) ? { list: ls.map(l => l.replace(/^[-*]\s+/, '')) } : ls.join(' ');
+    });
+    chapters.forEach(c => { c.paras = blocks(c.desc); });
+    return { meta, paras: blocks(top.desc), images: top.images, chapters };
+  }
+  // text with **bold**; blocks are strings (paragraphs) or {list: [...]}
+  function inline(node, t) {
+    t.split(/\*\*(.+?)\*\*/).forEach((bit, k) => { if (bit) node.appendChild(k % 2 ? el('b', '', bit) : document.createTextNode(bit)); });
+    return node;
+  }
+  function renderBlocks(box, blocks) {
+    blocks.forEach(b => {
+      if (typeof b === 'string') box.appendChild(inline(el('p'), b));
+      else { const ul = el('ul'); b.list.forEach(li => ul.appendChild(inline(el('li'), li))); box.appendChild(ul); }
+    });
+  }
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+  // ---------- ART INDEX ----------
+  const CATS = [['Video', /thumbnail|youtube|video/i], ['Game', /game/i], ['Design', /design|graphic|logo/i], ['Character', /character|concept|sculpt/i]];
+  const catOf = t => (CATS.find(([, re]) => re.test(t)) || ['Other'])[0];
+  let INDEX = [];
+  const artGrid = document.getElementById('artGrid');
+  const chips = document.querySelector('#art .chips');
+  const moreGrid = document.getElementById('moreGrid'), moreH = document.getElementById('moreH');
+  document.querySelectorAll('.more-t').forEach(btn => btn.addEventListener('click', () => {
+    const moreH = btn, moreGrid = document.getElementById(btn.getAttribute('aria-controls'));
+    const open = moreH.getAttribute('aria-expanded') !== 'true';
+    moreH.setAttribute('aria-expanded', open); moreGrid.hidden = !open;
+    const lab = moreH.querySelector('.lab');
+    lab.firstChild.textContent = open ? '( SHOW LESS ' : '( MORE WORK ';
+    lab.lastChild.textContent = open ? ' ▲ )' : ' ▼ )';
+  }));
+  const dims = {};
+  const aspect = p => dims[p.cover] ? dims[p.cover] : new Promise(res => { const i = new Image(); i.onload = () => res(dims[p.cover] = i.naturalWidth / i.naturalHeight); i.onerror = () => res(dims[p.cover] = 1.33); i.src = p.cover; });
+  // big + tall + s + s / wide + tall + tall / wide = a clean 4-column block for the best 8.
+  // Portrait covers get tall tiles, the widest covers get wide tiles, the first piece is always the big lead.
+  // Featured tiles keep Dean's order (sync.py ORDER = tile 01, 02, ...). Fixed plans fill the grid with no holes:
+  // 9 = big, tall, s, tall / wide, s / tall, tall, big. Other counts (filters): first big, rest by cover shape.
+  function bentoPlan(items, ars) {
+    const n = items.length; if (!n) return [];
+    const PLANS = { 7: ['big', 'tall', 's', 's', 'wide', 's', 's'], 8: ['big', 'tall', 's', 'tall', 'wide', 's', 'wide', 'wide'], 9: ['big', 'tall', 's', 'tall', 'wide', 's', 'tall', 'tall', 'big'] };
+    if (PLANS[n]) return items.map((p, i) => ({ p, size: PLANS[n][i] }));
+    return items.map((p, i) => ({ p, size: i === 0 ? 'big' : ars[i] < .9 ? 'tall' : ars[i] > 1.6 ? 'wide' : 's' }));
+  }
+  function cardFor(p, size, num) {
+    const a = el('a', 'card' + (size ? ' ' + size : '')); a.href = '#/art/' + p.slug;
+    const th = el('div', 'thumb' + (/\/cover-[^/]*$/.test(p.cover) ? ' whole' : '')); const im = el('img'); im.src = p.cover; im.alt = ''; im.loading = 'lazy'; th.appendChild(im);
+    if (size && p.loop && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const v = el('video'); v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none'; v.poster = p.cover; v.dataset.src = p.loop; v.setAttribute('aria-hidden', 'true');
+      th.appendChild(v); th.appendChild(el('span', 'looptag', 'LOOP'));
+      v.addEventListener('timeupdate', () => { if (v.currentTime > .15) th.classList.add('playing'); });
+      new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
+      }), { threshold: .25 }).observe(th);
+    }
+    if (size && SPRITES[p.slug]) { th.classList.add('spr'); spriteWhenSized(th, SPRITES[p.slug], true); }
+    else if (size && !(p.loop && !REDUCE) && p.layers && p.layers.length > 1) swipeTile(th, p.layers);
+    else if (size && !p.loop) th.classList.add('drift');
+    th.style.setProperty('--dd', (-(num || 1) * 1.1) + 's');
+    const meta = el('small', '', [catOf(p.type), p.year].filter(Boolean).join(' · '));
+    if (p.draft) meta.appendChild(el('span', 'draft', 'draft'));
+    if (size) { const cap = el('div', 'cap'); cap.append(el('b', '', p.title), meta); a.append(th, cap, el('span', 'n', String(num).padStart(2, '0'))); }
+    else a.append(th, el('b', '', p.title), meta);
+    return a;
+  }
+  const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Compare tiles: the first Compare line's passes (wireframe / solid / render) wipe into each other on a loop
+  function swipeTile(th, layers) {
+    const stack = el('div', 'layers'), tag = el('span', 'laytag', layers[0].label || '');
+    layers.forEach((L, i) => { const im = el('img'); im.alt = ''; im.loading = 'lazy'; im.src = L.src; if (i) im.className = 'off'; stack.appendChild(im); });
+    th.append(stack, tag); th.classList.add('swipe');
+    if (REDUCE) return;
+    let k = 0, on = false, timer;
+    const step = () => {
+      const imgs = stack.children, nk = (k + 1) % imgs.length, nx = imgs[nk];
+      [...imgs].forEach((x, j) => { x.style.zIndex = j === nk ? 2 : j === k ? 1 : 0; });
+      nx.classList.remove('in'); nx.classList.add('off'); void nx.offsetWidth; nx.classList.remove('off'); nx.classList.add('in');
+      k = nk; tag.textContent = layers[k].label || ''; timer = setTimeout(step, 1500);
+    };
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && !on) { on = true; timer = setTimeout(step, 700); } else if (!e.isIntersecting && on) { on = false; clearTimeout(timer); }
+    }), { threshold: .3 }).observe(th);
+  }
+  let drawSeq = 0;
+  async function drawIndex(filter) {
+    const seq = ++drawSeq;
+    const list = INDEX.filter(p => filter === 'All' || catOf(p.type) === filter);
+    const anyFeat = INDEX.some(p => p.featured);
+    const top = list.filter(p => !anyFeat || p.featured), more = list.filter(p => anyFeat && !p.featured);
+    const ars = await Promise.all(top.map(aspect));
+    if (seq !== drawSeq) return;
+    artGrid.textContent = ''; moreGrid.textContent = ''; artGrid.classList.add('bento');
+    bentoPlan(top, ars).forEach((t, i) => { const a = cardFor(t.p, t.size, i + 1); artGrid.appendChild(a); asciiInto(a.querySelector('.thumb')); });
+    more.forEach(p => { const a = cardFor(p); moreGrid.appendChild(a); asciiInto(a.querySelector('.thumb')); });
+    moreH.hidden = !moreGrid.children.length;
+    moreH.querySelector('.n').textContent = '· ' + moreGrid.children.length;
+  }
+  function asciiInto(t) {
+    if (t.classList.contains('spr')) return;
+    const im = t.querySelector('img');
+    const c = document.createElement('canvas'); c.setAttribute('aria-hidden', 'true'); t.appendChild(c);
+    const go = async () => { try { asciiThumb(await loadImg(im.getAttribute('src')), c); if (t.closest('#art')) setTimeout(() => t.classList.add('done'), matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 260); } catch (e) { c.remove(); im.style.opacity = 1; } };
+    new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); go(); } }, { rootMargin: '300px' }).observe(t);
+  }
+  let WORK = [];
+  fetch('content/index.json').then(r => r.json()).then(all => {
+    WORK = all.filter(p => p.section === 'work');
+    const list = INDEX = all.filter(p => p.section !== 'work');
+    const cats = ['All', ...CATS.map(c => c[0]).filter(c => list.some(p => catOf(p.type) === c))];
+    cats.forEach(c => {
+      const b = el('button', '', '( ' + c + ' )'); b.type = 'button'; b.setAttribute('aria-pressed', c === 'All');
+      b.onclick = () => { chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); drawIndex(c); };
+      chips.appendChild(b);
+    });
+    drawIndex('All'); route();
+  }).catch(() => { artGrid.textContent = 'Could not load the art list.'; });
+
+  // ---------- ROUTER: #/art/<slug> shows one piece, anything else is the home page ----------
+  const view = document.getElementById('pieceView');
+  function route() {
+    const m = location.hash.match(/^#\/art\/([\w-]+)/), w = location.hash.match(/^#\/work\/([\w-]+)/);
+    document.body.classList.toggle('piece-mode', !!m);
+    document.body.classList.toggle('work-mode', !!w);
+    if (m) { showPiece(m[1]); scrollTo(0, 0); }
+    else if (w) { showWork(w[1]); scrollTo(0, 0); }
+    else if (location.hash.length > 1) { const t = document.querySelector(location.hash); if (t) t.scrollIntoView(); }
+    kick();
+  }
+  addEventListener('hashchange', route);
+
+  // AUTO sizes: runs of single panels (between compares) are split into rows that always fill:
+  // 4+ -> big + tall, then 2 -> half + half, 3 -> third x3 (last slanted), 1 -> one wide panel
+  function autoSizes(images) {
+    const out = new Array(images.length).fill(null);
+    let run = [];
+    const flush = () => {
+      let r = run.slice(), alt = 0;
+      while (r.length) {
+        const left = r.length;
+        const g = left >= 4 ? (alt++ % 2 ? ['half', 'half'] : ['big', 'tall']) : left === 3 ? ['third', 'third', 'third'] : left === 2 ? ['half', 'half'] : ['wide'];
+        g.forEach((s, k) => { out[r[k]] = { size: s, slant: g.length === 3 && k === 2, solo: g.length === 1 }; });
+        r = r.slice(g.length);
+      }
+      run = [];
+    };
+    images.forEach((im, i) => { if (im.compare) flush(); else run.push(i); });
+    flush();
+    return out;
+  }
+  // ASCII sprite animations on piece pages (transparent sprite sheet shipped in img/<slug>/)
+  const SPRITES = { 'short-king-2': { src: 'img/short-king-2/crown-sprite.png', cols: 4, rows: 6, fps: 16, label: '( TITLE SCREEN CROWN · 24 FRAMES )' } };
+  let spriteStop = null;
+  // fill = true: canvas fills the box (tiles/cards) and the frame is fitted inside; else canvas height follows the frame
+  async function asciiSprite(box, S, fill) {
+    const img = await loadImg(S.src), fw = img.width / S.cols, fh = img.height / S.rows;
+    const cv = el('canvas'); cv.setAttribute('aria-hidden', 'true'); cv.className = 'sprcv'; box.prepend(cv);
+    const W = box.clientWidth, H = fill ? box.clientHeight : Math.round(W * fh / fw), dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.style.height = H + 'px'; cv.width = W * dpr; cv.height = H * dpr;
+    const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+    const fs = fill ? Math.max(5, Math.min(8, W / 55)) : 6, cw = fs * .62, chh = fs * 1.05, C = Math.floor(W / cw), R = Math.floor(H / chh);
+    let dx = 0, dy = 0, dw = C, dh = R;
+    if (fill) { const k = Math.min(W * .78 / fw, H * .62 / fh); dw = fw * k / cw; dh = fh * k / chh; dx = (C - dw) / 2; dy = R * .4 - dh / 2; }
+    const sc = document.createElement('canvas'); sc.width = C; sc.height = R; const sx = sc.getContext('2d', { willReadFrequently: true });
+    const frames = [];
+    for (let f = 0; f < S.cols * S.rows; f++) {
+      sx.clearRect(0, 0, C, R); sx.drawImage(img, (f % S.cols) * fw, Math.floor(f / S.cols) * fh, fw, fh, dx, dy, dw, dh);
+      frames.push(sx.getImageData(0, 0, C, R).data);
+    }
+    ctx.font = '700 ' + fs + 'px ' + FONT; ctx.textBaseline = 'top';
+    let f = 0, t0 = 0, raf, vis = true;
+    const draw = now => {
+      raf = requestAnimationFrame(draw);
+      if (!vis || now - t0 < 1000 / S.fps) return; t0 = now;
+      const d = frames[f]; f = (f + 1) % frames.length; ctx.clearRect(0, 0, W, H);
+      for (let y = 0; y < R; y++) for (let x = 0; x < C; x++) {
+        const i = (y * C + x) * 4; if (d[i + 3] < 90) continue;
+        const L = (0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255;
+        ctx.fillStyle = 'rgb(' + d[i] + ',' + d[i + 1] + ',' + d[i + 2] + ')';
+        ctx.fillText(RAMP[Math.min(N - 1, 3 + Math.floor(L * (N - 3)))], x * cw, y * chh);
+      }
+      if (REDUCE) cancelAnimationFrame(raf);
+    };
+    const io = new IntersectionObserver(es => { vis = es[0].isIntersecting; }); io.observe(box);
+    raf = requestAnimationFrame(draw);
+    return () => { cancelAnimationFrame(raf); io.disconnect(); };
+  }
+  // start once the box has a real size (cards inside closed dropdowns start when opened)
+  function spriteWhenSized(box, S, fill) {
+    const ro = new ResizeObserver(() => {
+      if (!box.clientWidth || !box.clientHeight) return;
+      ro.disconnect(); asciiSprite(box, S, fill).catch(() => box.classList.remove('spr'));
+    });
+    ro.observe(box);
+  }
+  document.querySelectorAll('[data-sprite]').forEach(b => { if (SPRITES[b.dataset.sprite]) spriteWhenSized(b, SPRITES[b.dataset.sprite], true); });
+  // extra buttons on piece pages (slug -> [label, url])
+  const LINKS = { 'short-king-2': [['▶ Play it on itch.io ↗', 'https://toochtrees.itch.io/short-king-2']] };
+  function showPiece(s) {
+    const p = INDEX.find(x => x.slug === s);
+    const h = view.querySelector('h2'), mt = view.querySelector('.meta'), dt = view.querySelector('.dtext'), grid = view.querySelector('.comic'), pager = view.querySelector('.pager');
+    const facts = view.querySelector('.facts'), dl = facts.querySelector('dl');
+    [mt, dt, grid, pager, dl].forEach(n => n.textContent = ''); facts.hidden = true;
+    if (spriteStop) { spriteStop(); spriteStop = null; } view.querySelectorAll('.sprite').forEach(n => n.remove());
+    if (SPRITES[s]) { const box = el('figure', 'sprite'); box.appendChild(el('figcaption', '', SPRITES[s].label)); view.querySelector('.piece-head').insertBefore(box, mt);
+      requestAnimationFrame(() => asciiSprite(box, SPRITES[s], false).then(stop => { spriteStop = stop; }).catch(() => box.remove())); }
+    if (!p) { h.textContent = 'Not found'; return; }
+    h.textContent = 'Loading…';
+    const i = INDEX.indexOf(p), prev = INDEX[(i - 1 + INDEX.length) % INDEX.length], next = INDEX[(i + 1) % INDEX.length];
+    const pa = el('a', '', '<-- ' + prev.title); pa.href = '#/art/' + prev.slug;
+    const na = el('a', '', next.title + ' -->'); na.href = '#/art/' + next.slug;
+    // featured pieces only page through each other: the ends of the featured run lead back to the Art section on the home page
+    if (p.featured) {
+      if (!prev.featured || i === 0) { pa.textContent = '<-- Back to featured art'; pa.href = '#art'; }
+      if (!next.featured || i === INDEX.length - 1) { na.textContent = 'Back to featured art -->'; na.href = '#art'; }
+    }
+    pager.append(pa, na);
+    fetch('content/' + s + '.md').then(r => r.text()).then(md => {
+      if (!location.hash.endsWith(s)) return;
+      const { meta, paras, images } = parseMd(md);
+      const title = p.title;
+      document.title = title + ' – Dean Kelso';
+      h.textContent = '';
+      title.split(/\s+/).forEach((w, k) => { if (k) h.appendChild(document.createElement('br')); h.appendChild(document.createTextNode(w)); });
+      [meta.for, (meta.tools || '').split(/\s*,\s*/).join(' · '), meta.year, meta.type].filter(Boolean).forEach(v => mt.appendChild(el('span', '', '( ' + v + ' )')));
+      renderBlocks(dt, paras);
+      if (LINKS[s]) { const row = el('div', 'plinks'); LINKS[s].forEach(([t, u]) => { const a = el('a', '', t); a.href = u; a.target = '_blank'; a.rel = 'noopener'; row.appendChild(a); }); dt.appendChild(row); }
+      [['role', 'My role'], ['time', 'Time spent'], ['next time', "Next time I'd"]].forEach(([k, lab]) => {
+        if (meta[k]) { dl.append(el('dt', '', lab), el('dd', '', meta[k])); facts.hidden = false; }
+      });
+      LB.items = [];
+      buildPanels(grid, images, s, title);
+      view.focus({ preventScroll: true });
+    }).catch(() => { h.textContent = 'Could not load piece'; });
+  }
+
+  function buildPanels(grid, images, s, title) {
+      const base = 'img/' + s + '/';
+      const src = f => base + slug(f.replace(/\.[^.]+$/, '')) + (isVid(f) ? '.mp4' : '.jpg');
+      const auto = autoSizes(images);
+      images.forEach((im, k) => {
+        if (im.compare) { grid.appendChild(compare(im, src)); return; }
+        const L = Object.assign({}, im.layout), A = auto[k], vid = isVid(im.file);
+        const size = L.size === 'auto' ? A.size : L.size;
+        if (!L.fitSet && ((L.size === 'auto' && A.solo) || vid)) L.fit = 'full';   // lone panels and clips show the whole frame
+        const f = el('figure', `panel s-${size} fit-${L.fit}` + (k % 2 ? ' dots-l' : '') + (L.size === 'auto' && A.slant ? ' slant' : ''));
+        let pic;
+        if (vid) { pic = clipEl(src(im.file)); pic.setAttribute('aria-label', im.note || im.label || title); f.appendChild(el('span', 'clip', 'LOOP')); }
+        else { pic = el('img'); pic.src = src(im.file); pic.alt = im.note || im.label || title; pic.loading = 'lazy'; }
+        placeImg(pic, L);
+        if (L.fit !== 'fill') { shapeFromImg(f, pic, L, 86); f.style.justifySelf = 'center'; }
+        f.appendChild(pic);
+        const li = LB.items.push({ src: src(im.file), vid, label: im.label, note: im.note }) - 1;
+        f.addEventListener('click', () => LB.open(li));
+        if ((im.label || im.note) && L.cap !== 'off') {
+          const cap = el('figcaption', [L.cap ? 'cap-' + L.cap : size === 'tall' ? 'br' : '', L.capSize ? 'cs-' + L.capSize : ''].join(' ').trim());
+          if (im.label) cap.appendChild(el('em', '', '( ' + im.label.toUpperCase() + ' )'));
+          cap.appendChild(document.createTextNode(im.note));
+          f.appendChild(cap);
+        }
+        grid.appendChild(f);
+      });
+  }
+
+  // ---------- PROJECT PAGES: #/work/<slug> ----------
+  // A project with a folder (Section: work) gets its story; any other Selected work row or
+  // More work card gets a "coming soon" page built from its own text on the home page.
+  const wview = document.getElementById('workView');
+  function workLinks() { return [...document.querySelectorAll('#work a[href^="#/work/"]')]; }
+  function showWork(s) {
+    const q = c => wview.querySelector(c);
+    const h = q('h2'), mt = q('.meta'), dt = q('.dtext'), hero = q('.whero'), chaps = q('.chapters'), pager = q('.pager');
+    const facts = q('.facts'), dl = facts.querySelector('dl'), play = q('.playbox'), soon = q('.soonbox');
+    [mt, dt, hero, chaps, pager, dl, play].forEach(n => n.textContent = ''); facts.hidden = play.hidden = soon.hidden = true;
+    const links = workLinks(), a = links.find(x => x.getAttribute('href') === '#/work/' + s);
+    if (links.length > 1) {
+      const i = Math.max(0, links.indexOf(a)), nm = x => (x.querySelector('h3, b') || x).textContent.trim();
+      const prev = links[(i - 1 + links.length) % links.length], next = links[(i + 1) % links.length];
+      const pa = el('a', '', '<-- ' + nm(prev)); pa.href = prev.getAttribute('href');
+      const na = el('a', '', nm(next) + ' -->'); na.href = next.getAttribute('href');
+      pager.append(pa, na);
+    }
+    const setTitle = t => { document.title = t + ' – Dean Kelso'; h.textContent = ''; t.split(/\s+/).forEach((w, k) => { if (k) h.appendChild(document.createElement('br')); h.appendChild(document.createTextNode(w)); }); };
+    const p = WORK.find(x => x.slug === s);
+    if (!p) {   // coming soon
+      if (!a) { setTitle('Not found'); return; }
+      setTitle((a.querySelector('h3, b') || a).textContent.trim());
+      const blurb = a.dataset.blurb || (a.querySelector('p') || {}).textContent || '';
+      const metaBits = a.dataset.meta ? a.dataset.meta.split('|') : (a.querySelector('.meta') ? [...a.querySelector('.meta').childNodes].filter(n => n.nodeType === 3).map(n => n.textContent) : []);
+      metaBits.filter(Boolean).forEach(v => mt.appendChild(el('span', '', /^\(/.test(v.trim()) ? v.trim() : '( ' + v.trim() + ' )')));
+      dt.appendChild(el('p', '', blurb)); soon.hidden = false;
+      return;
+    }
+    h.textContent = 'Loading…';
+    fetch('content/' + s + '.md').then(r => r.text()).then(md => {
+      if (!location.hash.endsWith(s)) return;
+      const { meta, paras, images, chapters } = parseMd(md);
+      setTitle(p.title);
+      [meta.for, (meta.tools || '').split(/\s*,\s*/).join(' · '), meta.year, meta.type].filter(Boolean).forEach(v => mt.appendChild(el('span', '', '( ' + v + ' )')));
+      renderBlocks(dt, paras);
+      [['role', 'My role'], ['time', 'Time spent'], ['next time', "Next time I'd"]].forEach(([k, lab]) => {
+        if (meta[k]) { dl.append(el('dt', '', lab), el('dd', '', meta[k])); facts.hidden = false; }
+      });
+      LB.items = [];
+      buildPanels(hero, images, s, p.title);
+      // playable build: only when the .md says Play: yes and gives a Play URL
+      const url = meta['play url'] || '';
+      if (/^y/i.test(meta.play || '') && /^(https:\/\/|play\/[\w.-]+\.html$)/.test(url)) {
+        const b = el('button', '', '( ▶ PLAY IT HERE )'); b.type = 'button';
+        const nt = el('a', '', '( open in a new tab ↗ )'); nt.href = url; nt.target = '_blank'; nt.rel = 'noopener';
+        play.append(el('span', '', 'The real web port, running right here. Tap to load it.'), b, nt);
+        const warm = () => { if (play.dataset.warm) return; play.dataset.warm = 1; const l = document.createElement('link'); l.rel = 'prefetch'; l.href = url; document.head.appendChild(l); };
+        b.addEventListener('pointerenter', warm); b.addEventListener('focus', warm); b.addEventListener('touchstart', warm, { passive: true });
+        b.onclick = () => { const f = el('iframe'); f.src = url; f.title = p.title + ' (playable)'; f.allow = 'autoplay; fullscreen'; play.replaceChildren(f); };
+        play.hidden = false;
+      }
+      chapters.forEach((c, k) => {
+        const art = el('article', 'chap'), head = el('div', 'chap-h');
+        head.append(el('span', 'n', '( ' + String(k + 1).padStart(2, '0') + ' )'), el('h3', '', c.name));
+        const tx = el('div', 'ctext'); renderBlocks(tx, c.paras);
+        art.append(head, tx);
+        if (c.images.length) { const g = el('div', 'comic'); buildPanels(g, c.images, s, p.title); art.appendChild(g); }
+        chaps.appendChild(art);
+      });
+      wview.focus({ preventScroll: true });
+    }).catch(() => { h.textContent = 'Could not load project'; });
+  }
+
+  function compare(im, src) {
+    const L = im.layout, n = im.compare.length;
+    const size = L.size === 'auto' ? 'wide' : L.size;
+    const f = el('figure', `panel pc s-${size} fit-${L.fit}`);
+    f.setAttribute('aria-label', 'Swipe compare: ' + im.compare.map(l => l.name || l.file).join(', '));
+    const first = LB.items.length;
+    const layers = im.compare.map(l => {
+      const box = el('div', 'layer'), p = el('img'); p.src = src(l.file); p.alt = l.name || l.file; p.loading = 'lazy';
+      placeImg(p, L); box.appendChild(p); f.appendChild(box);
+      LB.items.push({ src: src(l.file), vid: false, label: [im.label, l.name].filter(Boolean).join(' / '), note: im.note });
+      return box;
+    });
+    let bands = [0, 100];
+    // full + crop: the panel takes the image's (or crop's) shape; fill uses the size's shape
+    if (L.fit !== 'fill' || L.size === 'auto') shapeFromImg(f, layers[0].firstChild, L.fit === 'fill' ? { fit: 'full' } : L, 86);
+    const divs = im.compare.slice(1).map(() => { const d = el('div', 'div'); f.appendChild(d); return d; });
+    const chipsEl = im.compare.map(l => { const c = el('span', 'chip', '( ' + l.name + ' )'); if (!l.name) c.hidden = true; f.appendChild(c); return c; });
+    const gap = n > 3 ? 20 : 27;
+    function set(m) {
+      const p = [0];
+      for (let i = 0; i < n - 1; i++) p.push(Math.max(0, Math.min(100, m + (i - (n - 2) / 2) * gap)));
+      p.push(100); bands = p;
+      layers.forEach((ly, k) => { ly.style.clipPath = `inset(0 ${100 - p[k + 1]}% 0 ${p[k]}%)`; });
+      divs.forEach((d, i) => { d.style.left = p[i + 1] + '%'; });
+      chipsEl.forEach((c, k) => { const w = p[k + 1] - p[k]; c.style.left = (p[k] + p[k + 1]) / 2 + '%'; c.style.opacity = w > 9 ? 1 : 0; });
+    }
+    set(50);
+    f.addEventListener('pointermove', e => { const b = f.getBoundingClientRect(); set((e.clientX - b.left) / b.width * 100); });
+    f.addEventListener('click', e => {   // zoom into the layer you clicked on
+      const b = f.getBoundingClientRect(), x = (e.clientX - b.left) / b.width * 100;
+      let k = 0; while (k < n - 1 && x > bands[k + 1]) k++;
+      LB.open(first + k);
+    });
+    const cap = el('figcaption', [L.cap && L.cap !== 'off' ? 'cap-' + L.cap : '', L.capSize ? 'cs-' + L.capSize : ''].join(' ').trim());
+    if (L.cap === 'off') cap.hidden = true;
+    cap.appendChild(el('em', '', '( ' + (im.label || 'Compare').toUpperCase() + ' )'));
+    cap.appendChild(document.createTextNode(im.note));
+    f.appendChild(cap);
+    return f;
+  }
+
+  // ---------- SELECTED WORK: Andrix-style box guy roams the Lost Game Revival row (edges + cuts through the middle, like the game) ----------
+  { const row = document.querySelector('.work a[href="#/work/lost-game-revival"]');
+    if (row) {
+      const PAD = 9, cv = el('canvas', 'boxguy'); cv.setAttribute('aria-hidden', 'true'); row.appendChild(cv);
+      const ctx = cv.getContext('2d');
+      let W = 0, H = 0, last = 0, raf = 0, vis = false, hover = false, dpr = 1;
+      let x = 0, y = 0, vx = 1, vy = 0;
+      const path = [], trail = [], SPEED = 200, LIFE = 1.6, rnd = (a, b) => a + Math.random() * (b - a);
+      const size = () => {
+        const r = row.getBoundingClientRect(); W = r.width; H = r.height;
+        dpr = Math.min(devicePixelRatio || 1, 2);
+        cv.width = (W + PAD * 2) * dpr; cv.height = (H + PAD * 2) * dpr; cv.style.width = (W + PAD * 2) + 'px'; cv.style.height = (H + PAD * 2) + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        x = x ? Math.min(x, W) : W * .22; y = Math.min(y, H); path.length = 0; path.push([x, H * .55], [W * .45, H * .55], [W * .45, H]);
+      };
+      const corners = () => [[0, 0], [W, 0], [W, H], [0, H]];
+      // plan the next stretch: either a straight cut through the middle (sometimes with one jog), or a run along the edge
+      const plan = () => {
+        const onTB = y <= 1 || y >= H - 1, onLR = x <= 1 || x >= W - 1;
+        if (Math.random() < .7 && (onTB || onLR)) {
+          if (onTB && (!onLR || Math.random() < .5)) {
+            const ty = y <= 1 ? H : 0, x2 = Math.max(0, Math.min(W, x + rnd(-.35, .35) * W));
+            if (Math.random() < .55) { const my = rnd(.3, .7) * H; path.push([x, my], [x2, my], [x2, ty]); } else path.push([x, ty]);
+          } else {
+            const tx = x <= 1 ? W : 0, y2 = rnd(0, 1) < .5 ? 0 : H;
+            if (Math.random() < .5) { const mx = rnd(.2, .8) * W; path.push([mx, y], [mx, y2]); } else path.push([tx, y]);
+          }
+        } else {
+          // along the border to the next corner (clockwise), then a bit further along the next edge
+          const cs = corners(), i = y <= 1 && x < W - 1 ? 1 : x >= W - 1 && y < H - 1 ? 2 : y >= H - 1 && x > 1 ? 3 : 0;
+          const [cx, cy] = cs[i], [nx, ny] = cs[(i + 1) % 4], f = rnd(.15, .7);
+          path.push([cx, cy], [cx + (nx - cx) * f, cy + (ny - cy) * f]);
+        }
+      };
+      const draw = now => {
+        raf = requestAnimationFrame(draw);
+        const dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+        if (!vis || !W) return;
+        let move = SPEED * dt;
+        while (move > 0) {
+          if (!path.length) plan();
+          const [tx, ty] = path[0], dx = tx - x, dy = ty - y, dist = Math.hypot(dx, dy);
+          if (dist < .01) { path.shift(); continue; }
+          const k = Math.min(1, move / dist); vx = Math.sign(Math.round(dx)); vy = Math.sign(Math.round(dy));
+          x += dx * k; y += dy * k; if (k < 1) break; move -= dist; path.shift();
+        }
+        const t = now / 1000, o = vy ? 'v' : 'h';
+        if (!trail.length || Math.hypot(x - trail[trail.length - 1].x, y - trail[trail.length - 1].y) > 7) trail.push({ x, y, o, t });
+        while (trail.length && t - trail[0].t > LIFE) trail.shift();
+        ctx.clearRect(0, 0, W + PAD * 2, H + PAD * 2);
+        const ink = hover ? '0,0,0' : '95,211,168';
+        ctx.font = '700 11px ' + FONT;
+        trail.forEach(p => {
+          const a = 1 - (t - p.t) / LIFE, inside = p.x > 2 && p.x < W - 2 && p.y > 2 && p.y < H - 2;
+          ctx.fillStyle = 'rgba(' + ink + ',' + (a * (inside ? .6 : .85)).toFixed(2) + ')';
+          ctx.fillText(a > .66 ? (p.o === 'h' ? '=' : '‖') : a > .33 ? (p.o === 'h' ? '-' : '|') : '·', p.x + PAD, p.y + PAD);
+        });
+        // the box guy: a little square with eyes that look where he is going
+        const bx = x + PAD, by = y + PAD, s = 11;
+        ctx.fillStyle = hover ? '#fff' : '#000'; ctx.fillRect(bx - s / 2 - 2, by - s / 2 - 2, s + 4, s + 4);
+        ctx.strokeStyle = 'rgb(' + ink + ')'; ctx.lineWidth = 2; ctx.strokeRect(bx - s / 2, by - s / 2, s, s);
+        const ex = vx * 1.5, ey = vy * 1.5;
+        ctx.fillStyle = 'rgb(' + ink + ')'; ctx.fillRect(bx - 3 + ex, by - 1.5 + ey, 2, 2); ctx.fillRect(bx + 1 + ex, by - 1.5 + ey, 2, 2);
+        if (reduce) cancelAnimationFrame(raf);
+      };
+      size(); new ResizeObserver(size).observe(row);
+      new IntersectionObserver(es => { vis = es[0].isIntersecting; }).observe(row);
+      row.addEventListener('mouseenter', () => hover = true); row.addEventListener('mouseleave', () => hover = false);
+      raf = requestAnimationFrame(draw);
+    }
+  }
+
+  // ---------- SELECTED WORK: hover a row -> a little gameplay clip floats next to the cursor (mouse only; off for reduced motion) ----------
+  { const CLIPS = { 'lost-game-revival': ['img/clips/andrix', 220], '1v1-me-bro': ['img/clips/1v1-me-bro', 400], 'timberfall': ['img/clips/timberfall', 400] };
+    if (!reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const peek = el('div', 'clippeek'), vid = el('video'), tag = el('b', '', '( GAMEPLAY )');
+      vid.muted = true; vid.loop = true; vid.playsInline = true; vid.preload = 'none'; peek.setAttribute('aria-hidden', 'true');
+      peek.append(vid, tag); document.body.appendChild(peek);
+      let mx = 0, my = 0, x = 0, y = 0, raf = 0, w = 0, side = 1;
+      const place = () => {
+        const h = peek.offsetHeight || w * .6;
+        side = mx + 32 + w > innerWidth - 12 ? -1 : 1;
+        const tx = side > 0 ? mx + 32 : mx - 32 - w, ty = Math.max(80, Math.min(innerHeight - h - 12, my - h / 2));
+        x += (tx - x) * .2; y += (ty - y) * .2; peek.style.left = x + 'px'; peek.style.top = y + 'px';
+        peek.style.transformOrigin = side > 0 ? 'left center' : 'right center';
+        raf = requestAnimationFrame(place);
+      };
+      document.querySelectorAll('.work a').forEach(row => {
+        const c = CLIPS[row.getAttribute('href').split('/').pop()]; if (!c) return;
+        row.addEventListener('mouseenter', e => {
+          mx = e.clientX; my = e.clientY; w = c[1]; peek.style.width = w + 'px';
+          if (vid.dataset.src !== c[0]) { vid.dataset.src = c[0]; vid.poster = c[0] + '.jpg'; vid.src = c[0] + '.mp4'; }
+          x = mx + 32 > innerWidth - w - 12 ? mx - 32 - w : mx + 32; y = my - w * .3;
+          vid.currentTime = 0; vid.play().catch(() => {}); peek.classList.add('on');
+          cancelAnimationFrame(raf); raf = requestAnimationFrame(place);
+        });
+        row.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+        row.addEventListener('mouseleave', () => { peek.classList.remove('on'); vid.pause(); setTimeout(() => { if (!peek.classList.contains('on')) cancelAnimationFrame(raf); }, 200); });
+      });
+    }
+  }
+
+  // ---------- SELECTED WORK: little mascots next to the Timberfall / 1v1 Me-Bro / incremental titles ----------
+  // white ink on black, black ink when the row is hovered (like the box guy); only animate on screen; still for reduced motion
+  const mascot = (href, w, h, step) => {
+    const row = document.querySelector('.work a[href="' + href + '"]'), h3 = row && row.querySelector('h3');
+    if (!h3) return;
+    const cv = el('canvas', 'mascot'); cv.setAttribute('aria-hidden', 'true'); h3.appendChild(cv);
+    const ctx = cv.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.width = w * dpr; cv.height = h * dpr; cv.style.width = w + 'px'; cv.style.height = h + 'px';
+    let vis = false, hover = false, last = 0;
+    const frame = (now, dt) => {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h); ctx.globalAlpha = 1;
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      step(ctx, dt, now / 1000, hover ? '#000' : '#fff', hover ? '#fff' : '#000', hover);
+    };
+    const loop = now => { requestAnimationFrame(loop); if (!vis) { last = 0; return; } const dt = Math.min(.05, (now - (last || now)) / 1000); last = now; frame(now, dt); };
+    new IntersectionObserver(es => { vis = es[0].isIntersecting; }).observe(row);
+    const hv = on => () => { hover = on; if (reduce) frame(performance.now(), 0); };
+    row.addEventListener('mouseenter', hv(true)); row.addEventListener('mouseleave', hv(false));
+    if (reduce) (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => frame(performance.now(), 0));
+    else requestAnimationFrame(loop);
+  };
+
+  // Timberfall: an axe chops a little ASCII pine, 5 hits -> it falls ("TIMBER!"), fades, regrows from the stump
+  { const GY = 54, TX = 48, TW = 6, NY = 46, PX = 29, PY = 56, L = 20, UP = -2.7, HIT = -.52, HITS = 5, F = 1.18;  // low cut; F = where the fallen tree rests on its branches
+    const PINE = ['^', '^^^', '^^^^^', '^^^', '^^^^^', '^^^^^^^'];
+    const eo = k => 1 - (1 - k) * (1 - k);
+    let st = 'chop', t = .5, hits = 0, struck = false, landed = false, chips = [], shake = 0;
+    const tree = (c, ink, a) => {   // trunk above the notch + pine; the notch's right edge sits at 0,0 (the hinge it falls on)
+      c.fillStyle = ink; c.globalAlpha = a;
+      c.fillRect(-TW, 26 - NY, TW, NY - 26);
+      c.font = '700 9px ' + FONT;
+      PINE.forEach((r, i) => c.fillText(r, -TW / 2, 26 - NY - (PINE.length - i - .9) * 4.2));
+      c.globalAlpha = 1;
+    };
+    mascot('#/work/timberfall', 100, 58, (c, dt, s, ink, bg) => {
+      t += dt; shake -= dt;
+      let ang = UP, fall = 0, alpha = 1, grow = 1;
+      if (st === 'chop') {
+        if (t < .5) ang = HIT + (UP - HIT) * eo(t / .5);                        // wind up
+        else if (t < .63) { const k = (t - .5) / .13; ang = UP + (HIT - UP) * k * k; }  // swing
+        else {
+          ang = HIT;
+          if (!struck) { struck = true; hits++; shake = .12;
+            for (let i = 0; i < 4; i++) chips.push({ x: TX - 1, y: NY, vx: -(30 + Math.random() * 60), vy: -(30 + Math.random() * 60), l: .7, s: 2 }); }
+          if (t >= .8) { t = 0; struck = false; if (hits >= HITS) { st = 'fall'; landed = false; } }
+        }
+      } else if (st === 'fall') {
+        ang = HIT + (UP - HIT) * .4 * eo(Math.min(1, t / .6));
+        fall = t < 1 ? F * t * t : F - .06 * Math.sin(Math.min(1, (t - 1) / .3) * Math.PI);
+        if (t >= 1 && !landed) { landed = true;
+          for (let i = 0; i < 7; i++) chips.push({ x: 60 + Math.random() * 28, y: GY - 2, vx: (Math.random() - .5) * 50, vy: -(10 + Math.random() * 25), l: .5, s: 1.5 }); }
+        if (t > 2) alpha = Math.max(0, 1 - (t - 2) / .5);
+        if (t > 2.5) { st = 'grow'; t = 0; hits = 0; }
+      } else {
+        ang = UP; grow = eo(Math.min(1, t / .6));
+        if (t > .9) { st = 'chop'; t = .5; }
+      }
+      c.fillStyle = ink;
+      c.globalAlpha = .45; c.fillRect(4, GY, 92, 1); c.globalAlpha = 1;   // ground
+      c.fillRect(TX, NY, TW, GY - NY);                                     // stump
+      c.save(); c.translate(TX + TW + (shake > 0 ? (Math.random() < .5 ? -1 : 1) : 0), NY);
+      if (st === 'fall') c.rotate(fall);
+      if (st === 'grow') { c.translate(-TW / 2, 0); c.scale(grow, grow); c.translate(TW / 2, 0); }
+      tree(c, ink, alpha); c.restore();
+      if (st === 'chop' && hits) {                                         // the notch gets deeper each hit
+        const d = Math.min(TW - 1, hits * 1.1); c.fillStyle = bg;
+        c.beginPath(); c.moveTo(TX - .5, NY - 3); c.lineTo(TX + d, NY); c.lineTo(TX - .5, NY + 3); c.fill();
+      }
+      c.fillStyle = ink;
+      chips = chips.filter(p => (p.l -= dt) > 0);
+      chips.forEach(p => {
+        p.vy += 200 * dt; p.x += p.vx * dt; p.y += p.vy * dt;
+        if (p.y > GY - 1) { p.y = GY - 1; p.vy *= -.3; p.vx *= .6; }
+        c.globalAlpha = Math.min(1, p.l / .3); c.fillRect(p.x - 1, p.y - 1, p.s, p.s);
+      });
+      c.globalAlpha = 1;
+      if (st === 'fall' && t > 1 && t < 2.3) { c.globalAlpha = alpha; c.font = '800 8px ' + FONT; c.fillText('TIMBER!', 74, 10); c.globalAlpha = 1; }
+      // the axe: handle + head, blade on the side that leads the swing
+      c.save(); c.translate(PX, PY); c.rotate(ang); c.fillStyle = ink;
+      c.fillRect(0, -1, L, 2);
+      c.fillRect(L - 4, -3, 5, 4);
+      c.beginPath(); c.moveTo(L - 4, 1); c.lineTo(L + 1, 1); c.lineTo(L + 3, 7); c.lineTo(L - 6, 7); c.closePath(); c.fill();
+      c.restore();
+    });
+  }
+
+  // 1v1 Me-Bro: two stick guys trade punches, kicks, uppercuts and flying kicks; hits spark (sometimes POW), some get blocked
+  { const GY = 54, T = 11, UA = 6.5, LA = 6.5, UL = 8, LL = 8;
+    //            lean  armF up/low   armB up/low  legF up/low   legB up/low   dx  dy
+    const P = {
+      guard: [ .15,  .9, 2.6,   .5, 2.3,   .35,  .15,  -.35, -.2,   0,  0],
+      punch: [ .35, 1.55, 1.55, .4, 2.5,   .6,   .2,   -.5, -.45,   5,  0],
+      kick:  [-.35, 1.2, 1.9,  -.8, -.3,   1.7,  1.6,  -.1, -.05,   2,  0],
+      upper: [ .05, 1.0, 3.0,   .4, 2.4,   .55,  .1,   -.4, -.6,    3, -3],
+      fly:   [-.2,  1.8, 2.3,  -.6, -.2,   1.45, 1.45,  .5, -.9,    9, -9],
+      hit:   [-.6, -.4, -.9,    .3, -.3,   .5,   .3,   -.3, -.1,   -7,  0],
+      block: [-.1,  1.2, 2.9,  1.0, 2.8,   .3,   .1,   -.45, -.3,  -2,  0]
+    };
+    const MOVES = ['punch', 'punch', 'kick', 'upper', 'fly'], AT = { punch: 24, kick: 28, upper: 20, fly: 25 };
+    const seg = (x, y, f, a, l) => [x + f * l * Math.sin(a), y + l * Math.cos(a)];
+    const A = { x: 38, f: 1, p: P.guard.slice(), tgt: 'guard', band: false }, B = { x: 72, f: -1, p: P.guard.slice(), tgt: 'guard', band: true };
+    let clock = 0, next = .6, att = null, def = null, move = '', ev = 2, sparks = [], pow = 0, powX = 0, powY = 0;
+    const guy = (c, F, s, ink) => {
+      const p = F.p, f = F.f;
+      const k1 = seg(0, 0, f, p[5], UL), f1 = seg(k1[0], k1[1], f, p[6], LL), k2 = seg(0, 0, f, p[7], UL), f2 = seg(k2[0], k2[1], f, p[8], LL);
+      const bob = F.tgt === 'guard' ? Math.sin(s * 9 + f) * .7 : 0;
+      const hx = F.x + f * p[9], hy = GY - Math.max(f1[1], f2[1]) + p[10] + bob, at = q => [hx + q[0], hy + q[1]];
+      const neck = [hx + f * T * Math.sin(p[0]), hy - T * Math.cos(p[0])], head = [neck[0] + f * 4.5 * Math.sin(p[0]), neck[1] - 4.5 * Math.cos(p[0])];
+      const e1 = seg(neck[0], neck[1], f, p[1], UA), h1 = seg(e1[0], e1[1], f, p[2], LA), e2 = seg(neck[0], neck[1], f, p[3], UA), h2 = seg(e2[0], e2[1], f, p[4], LA);
+      const line = (...q) => { c.beginPath(); c.moveTo(q[0][0], q[0][1]); q.slice(1).forEach(v => c.lineTo(v[0], v[1])); c.stroke(); };
+      c.strokeStyle = ink; c.fillStyle = ink; c.lineWidth = 2;
+      c.globalAlpha = .5; line(neck, e2, h2); line([hx, hy], at(k2), at(f2)); c.globalAlpha = 1;   // back limbs, dimmer
+      line([hx, hy], neck); line(neck, e1, h1); line([hx, hy], at(k1), at(f1));
+      c.beginPath(); c.arc(head[0], head[1], 3.6, 0, 7); c.fill();
+      if (F.band) {   // headband tails flapping behind him
+        const bx = head[0] - f * 3, by = head[1] - 1; c.lineWidth = 1.2; c.beginPath();
+        c.moveTo(bx, by); c.lineTo(bx - f * 5, by - 1 + Math.sin(s * 20) * 1.5);
+        c.moveTo(bx, by); c.lineTo(bx - f * 4.5, by + 1.5 + Math.sin(s * 20 + 1) * 1.5); c.stroke();
+      }
+    };
+    mascot('#/work/1v1-me-bro', 110, 58, (c, dt, s, ink) => {
+      clock += dt;
+      if (dt && clock >= next) {   // next exchange
+        att = Math.random() < .5 ? A : B; def = att === A ? B : A; move = MOVES[Math.random() * MOVES.length | 0];
+        att.tgt = move; ev = 0; clock = 0; next = .7 + Math.random() * .45;
+      }
+      if (ev === 0 && clock > .12) {
+        ev = 1; const hit = Math.random() < .65; def.tgt = hit ? 'hit' : 'block';
+        const cx = (A.x + B.x) / 2 + att.f * 2, cy = AT[move];
+        sparks.push({ x: cx, y: cy, l: .25, big: hit });
+        if (hit && (move === 'fly' || Math.random() < .2)) { pow = .5; powX = cx; powY = Math.max(7, cy - 13); }
+      }
+      if (ev === 1 && clock > .38) { ev = 2; att.tgt = def.tgt = 'guard'; }
+      const k = 1 - Math.exp(-dt * 24);
+      [A, B].forEach(F => { const tg = P[F.tgt]; F.p = F.p.map((v, i) => v + (tg[i] - v) * k); });
+      c.fillStyle = ink; c.globalAlpha = .45; c.fillRect(6, GY, 98, 1); c.globalAlpha = 1;
+      guy(c, B, s, ink); guy(c, A, s, ink);
+      sparks = sparks.filter(p => (p.l -= dt) > 0);
+      sparks.forEach(p => {
+        const g = 1 - p.l / .25, n = p.big ? 8 : 4, r = 2 + g * 5, r2 = r + (p.big ? 4 : 2);
+        c.globalAlpha = p.l / .25; c.lineWidth = 1.2; c.beginPath();
+        for (let i = 0; i < n; i++) { const a = i / n * 6.283 + .3; c.moveTo(p.x + Math.cos(a) * r, p.y + Math.sin(a) * r); c.lineTo(p.x + Math.cos(a) * r2, p.y + Math.sin(a) * r2); }
+        c.stroke();
+      });
+      if (pow > 0) { pow -= dt; c.globalAlpha = Math.min(1, pow / .2); c.fillStyle = ink; c.font = '800 9px ' + FONT; c.fillText('POW', powX, powY); }
+      c.globalAlpha = 1;
+    });
+  }
+
+  // Incremental mobile game: a number that keeps going up, +1 popping off it; hover = faster ("tapping");
+  // every 50 = LEVEL UP. The count is remembered between visits (just in this browser)
+  { let n = 0, acc = 0, floats = [], bump = 0, saved = 0;
+    try { n = +localStorage.getItem('dk-incremental') || 0; } catch (e) {}
+    mascot('#/work/incremental-mobile-game', 120, 58, (c, dt, s, ink, bg, hover) => {
+      acc += dt;
+      const every = hover ? .07 : .32;
+      while (acc >= every) {
+        acc -= every; n++; bump = 1;
+        floats.push({ x: 60 + (Math.random() - .5) * 50, l: .9, txt: '+1', big: false });
+        if (n % 50 === 0) floats.push({ x: 60, l: 1.2, txt: 'LEVEL UP!', big: true });
+      }
+      bump = Math.max(0, bump - dt * 6);
+      if (dt && s - saved > 2) { saved = s; try { localStorage.setItem('dk-incremental', n); } catch (e) {} }
+      c.fillStyle = ink;
+      floats = floats.filter(p => (p.l -= dt) > 0);
+      floats.forEach(p => {
+        const life = p.big ? 1.2 : .9, g = 1 - p.l / life;
+        c.globalAlpha = p.l < .3 ? p.l / .3 : 1; c.font = (p.big ? '800 9px ' : '700 10px ') + FONT;
+        c.fillText(p.txt, p.x, (p.big ? 24 : 30) - g * 22);
+      });
+      c.globalAlpha = 1;
+      c.save(); c.translate(60, 42); const sc = 1 + bump * .12; c.scale(sc, sc);
+      c.font = '800 16px ' + FONT; c.fillText(n.toLocaleString('en-US'), 0, 0); c.restore();
+      c.globalAlpha = .35; c.fillRect(20, 55, 80, 1); c.globalAlpha = 1;     // progress to the next level
+      c.fillRect(20, 54.5, 80 * (n % 50) / 50, 2);
+    });
+  }
+
+  // ---------- FOOTER: back to top. A rope drops, the little guy grabs it and rides up with you ----------
+  { const btn = document.getElementById('toTop'), guy = document.querySelector('.waver');
+    const HANG = ['  \\_|_/', '   (_)', '   /|\\', '   / \\'], KICK = ['  \\_|_/', '   (_)', '   /|\\', '   | |'];
+    let busy = false;
+    const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const tween = (ms, fn) => new Promise(res => { const t0 = performance.now(); const go = now => { const t = Math.min(1, (now - t0) / ms); fn(t); t < 1 ? requestAnimationFrame(go) : res(); }; requestAnimationFrame(go); });
+    if (btn) btn.addEventListener('click', async () => {
+      if (busy) return;
+      if (reduce || !guy) { scrollTo(0, 0); return; }
+      busy = true;
+      const html = document.documentElement, sb = html.style.scrollBehavior; html.style.scrollBehavior = 'auto';
+      const g = guy.getBoundingClientRect(), cs = getComputedStyle(guy), chw = parseFloat(cs.fontSize) * .6;
+      const handX = g.left + chw * 4.5, startY = g.top;
+      const rope = el('div', 'rope'); rope.style.left = handX + 'px'; rope.style.height = '0px'; document.body.appendChild(rope);
+      const climb = el('pre', 'climber'); climb.textContent = HANG.join('\n'); climb.style.left = (g.left + chw) + 'px'; climb.style.top = startY + 'px';
+      btn.style.visibility = 'hidden';
+      await tween(380, t => { rope.style.height = (startY * ease(t)) + 'px'; });               // the rope drops
+      guy.style.visibility = 'hidden'; document.body.appendChild(climb);                          // he grabs it
+      await tween(160, t => { climb.style.top = (startY + Math.sin(t * Math.PI) * 8) + 'px'; });  // little tug
+      const y0 = scrollY, endY = 64; let leg = -1;
+      await tween(Math.min(1700, 700 + y0 * .12), t => {                                         // pulled up, the page scrolls with him
+        const e = ease(t), y = startY + (endY - startY) * e;
+        scrollTo(0, y0 * (1 - e)); climb.style.top = y + 'px'; rope.style.height = Math.max(0, y) + 'px';
+        const k = t * 14 | 0; if (k !== leg) { leg = k; climb.textContent = (k % 2 ? KICK : HANG).join('\n'); }
+      });
+      climb.textContent = HANG.join('\n');
+      await new Promise(res => setTimeout(res, 380));
+      await tween(320, t => { const y = endY - (endY + 90) * ease(t); climb.style.top = y + 'px'; rope.style.height = Math.max(0, y) + 'px'; });  // reeled off the top
+      climb.remove(); rope.remove(); guy.style.visibility = ''; btn.style.visibility = ''; html.style.scrollBehavior = sb; busy = false;
+    });
+  }
+
+  // ---------- FOOTER: the little guy waves ----------
+  const waver = document.querySelector('.waver');
+  if (waver && !reduce) {
+    const frames = [waver.textContent, waver.textContent.replace('(_)/', '(_)_')];
+    let w = 0;
+    new IntersectionObserver(es => {
+      clearInterval(waver._t);
+      if (es[0].isIntersecting) waver._t = setInterval(() => { w ^= 1; waver.textContent = frames[w]; }, 420);
+    }).observe(waver);
+  }
+
+  // ---------- BACKGROUND ASCII: faint flowing field, parallax with scroll ----------
+  (() => {
+    const c = document.getElementById('bgAscii'); if (!c) return;
+    const g = c.getContext('2d');
+    const CH = '  ..·:-~+';
+    let W, H, dp, cw, chh, cols, rows, last = 0, raf = 0;
+    function size() {
+      dp = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight;
+      c.width = W * dp; c.height = H * dp; g.setTransform(dp, 0, 0, dp, 0, 0);
+      g.font = '12px ' + FONT; g.textBaseline = 'top';
+      cw = g.measureText('M').width; chh = 15; cols = Math.ceil(W / cw) + 1; rows = Math.ceil(H / chh) + 2;
+    }
+    function draw(now) {
+      raf = 0;
+      const t = reduce ? 0 : now / 1000, sy = scrollY * 0.35, r0 = Math.floor(sy / chh), off = -(sy % chh);
+      g.clearRect(0, 0, W, H);
+      for (let y = 0; y < rows; y++) {
+        const wy = y + r0; let dim = '', hi = '';
+        for (let x = 0; x < cols; x++) {
+          const v = Math.sin(x * .07 + t * .25 + Math.sin(wy * .09 + t * .1) * 2) + Math.sin(wy * .13 - x * .04 - t * .18) + Math.sin((x + wy) * .03 + t * .07);
+          const k = Math.max(0, Math.floor((v - 1.1) * 3.4));
+          const ch = k > 0 ? CH[Math.min(CH.length - 1, k)] : ' ';
+          if (k >= 7) { hi += ch; dim += ' '; } else { dim += ch; hi += ' '; }
+        }
+        g.fillStyle = '#191919'; g.fillText(dim, 0, y * chh + off);
+        g.fillStyle = '#242424'; g.fillText(hi, 0, y * chh + off);
+      }
+      if (!reduce) setTimeout(() => { if (!raf) raf = requestAnimationFrame(draw); }, 90);   // ~10 fps drift
+    }
+    const go = () => { if (!raf) raf = requestAnimationFrame(draw); };
+    size(); (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { size(); go(); });
+    addEventListener('resize', () => { size(); go(); });
+    addEventListener('scroll', go, { passive: true });
+  })();
+
+  // ---------- DIVIDERS: a little runner rides each +----( LABEL )----+ line as you scroll ----------
+  (() => {
+    const rules = [...document.querySelectorAll('.rule')].map(r => {
+      const b = r.querySelector('b'); return { r, lab: b ? b.textContent : '' };
+    });
+    const m = document.createElement('canvas').getContext('2d');
+    let lastY = scrollY, dir = 1, raf = 0;
+    function paint() {
+      raf = 0;
+      const y = scrollY; if (y !== lastY) dir = y > lastY ? 1 : -1; lastY = y;
+      m.font = '13px ' + FONT; const cw = m.measureText('-').width || 7.8;
+      for (const R of rules) {
+        const b = R.r.getBoundingClientRect(); if (!b.width || b.bottom < -50 || b.top > innerHeight + 50) continue;
+        const total = Math.max(40, Math.floor(b.width / cw));
+        const left = '+------------------------( ', mid = ' )';
+        const n = Math.max(6, total - left.length - R.lab.length - mid.length - 1);
+        const prog = Math.min(1, Math.max(0, (innerHeight - b.top) / (innerHeight + b.height)));
+        const runner = dir > 0 ? '=>' : '<=', trail = dir > 0 ? '·:' : ':·';
+        const p = Math.min(n - 4, Math.max(0, Math.round(prog * (n - 4))));
+        const dash = k => '-'.repeat(Math.max(0, k));
+        const seg = dir > 0
+          ? dash(p) + '<span class="tr">' + trail + '</span><i>' + runner + '</i>' + dash(n - p - 4)
+          : dash(p) + '<i>' + runner + '</i><span class="tr">' + trail + '</span>' + dash(n - p - 4);
+        R.r.innerHTML = left + '<b>' + R.lab + '</b>' + mid + seg + '+';
+      }
+    }
+    const go = () => { if (!raf) raf = requestAnimationFrame(paint); };
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(go);
+    addEventListener('scroll', go, { passive: true }); addEventListener('resize', go); addEventListener('hashchange', () => setTimeout(go, 50));
+  })();
+
+  // ---------- LITTLE GUYS ----------
+  const GUY = { stand: '  _\n (_)\n /|\\\n / \\', wave: '  _\n (_)/\n /|\n / \\', wave2: '  _\n (_)_\n /|\n / \\', yay: '  _\n\\(_)/\n  |\n / \\' };
+  // idle buddies: click them and they jump, wave and say something
+  document.querySelectorAll('.buddy').forEach(bd => {
+    bd.textContent = GUY.stand;
+    const lines = (bd.dataset.say || 'hi!').split('|'); let busy = false, n = 0;
+    bd.addEventListener('click', e => {
+      e.stopPropagation(); if (busy) return; busy = true;
+      const say = document.createElement('span'); say.className = 'say'; say.textContent = lines[n++ % lines.length];
+      bd.textContent = GUY.yay; bd.appendChild(say); bd.classList.add('jump');
+      const seq = [GUY.wave, GUY.wave2, GUY.wave, GUY.wave2, GUY.stand];
+      setTimeout(() => bd.classList.remove('jump'), 200);
+      seq.forEach((f, i) => setTimeout(() => { bd.firstChild.textContent = f; if (i === seq.length - 1) setTimeout(() => { say.remove(); busy = false; }, 500); }, 260 + i * 180));
+    });
+    // now and then, a little wave on its own
+    if (!reduce) setInterval(() => { if (busy || Math.random() > .35) return; bd.firstChild.textContent = GUY.wave; setTimeout(() => { if (!busy) bd.firstChild.textContent = GUY.stand; }, 600); }, 4000);
+  });
+
+  // pop-up helper: on boxes and buttons a guy pops over the top edge and presses it for you
+  { const b = document.getElementById('copyMail');
+    if (b) b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText('dean.r.kelso@gmail.com'); }
+      catch (e) { const t = document.createElement('textarea'); t.value = 'dean.r.kelso@gmail.com'; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (_) {} t.remove(); }
+      b.classList.add('done'); clearTimeout(b._t); b._t = setTimeout(() => b.classList.remove('done'), 1800);
+    }); }
+  const POKE = '.card, .strip a, .work a, .vid .screen button, footer .row a, .chips button, .more-t, .pager a, .back';
+  const PEEK = '  _\n (_)\n /|\\', PRESS = '  _\n (_)\n /|_';
+  let pass = null;
+  document.addEventListener('click', e => {
+    const t = e.target.closest(POKE);
+    if (!t || t === pass || reduce || e.detail === 0 || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || t._poking) return;
+    const ext = t.tagName === 'A' && !/^#/.test(t.getAttribute('href') || '');
+    const b = t.getBoundingClientRect();
+    const pk = document.createElement('div'); pk.className = 'peek'; pk.setAttribute('aria-hidden', 'true');
+    const x = Math.min(Math.max(e.clientX - 18, b.left + 4), b.right - 40);
+    pk.style.left = x + scrollX + 'px'; pk.style.top = b.top + scrollY - 60 + 'px';
+    const pre = document.createElement('pre'); pre.textContent = PEEK; pk.appendChild(pre); document.body.appendChild(pk);
+    if (!ext) { e.preventDefault(); e.stopImmediatePropagation(); t._poking = true; }
+    requestAnimationFrame(() => pk.classList.add('up'));
+    setTimeout(() => { pre.textContent = PRESS; pk.classList.add('press'); t.classList.add('poked'); }, 200);
+    setTimeout(() => {
+      t.classList.remove('poked'); pk.classList.remove('press', 'up');
+      if (!ext) { t._poking = false; pass = t; t.click(); pass = null; }
+    }, 380);
+    setTimeout(() => pk.remove(), 700);
+  }, true);
+
+  // ---------- LIGHTBOX: click a panel, arrows / keys to flip, Esc to close ----------
+  const LB = (() => {
+    const box = document.getElementById('lb'), stage = box.querySelector('.stage'), cap = box.querySelector('.cap'), count = box.querySelector('.count');
+    const closeB = box.querySelector('.close'), prevB = box.querySelector('.prev'), nextB = box.querySelector('.next');
+    const api = { items: [], i: 0, back: null };
+    let media = null;
+    function show() {
+      const it = api.items[api.i]; if (!it) return;
+      if (media) media.remove();
+      if (it.vid) { media = document.createElement('video'); Object.assign(media, { controls: true, autoplay: true, playsInline: true, src: it.src }); }
+      else { media = el('img'); media.src = it.src; media.alt = it.note || it.label || ''; }
+      stage.insertBefore(media, prevB);
+      count.textContent = String(api.i + 1).padStart(2, '0') + ' / ' + String(api.items.length).padStart(2, '0') + (it.vid ? '  ( sound on )' : '');
+      cap.textContent = '';
+      if (it.label) cap.appendChild(el('em', '', '( ' + it.label.toUpperCase() + ' )'));
+      if (it.note) cap.appendChild(document.createTextNode(it.note));
+      prevB.hidden = nextB.hidden = api.items.length < 2;
+    }
+    api.open = i => { api.i = i; api.back = document.activeElement; box.classList.add('open'); document.body.classList.add('lb-open'); show(); closeB.focus(); };
+    api.close = () => { box.classList.remove('open'); document.body.classList.remove('lb-open'); if (media) { media.remove(); media = null; } if (api.back) api.back.focus({ preventScroll: true }); };
+    const step = d => { api.i = (api.i + d + api.items.length) % api.items.length; show(); };
+    prevB.onclick = () => step(-1); nextB.onclick = () => step(1); closeB.onclick = api.close;
+    stage.addEventListener('click', e => { if (e.target === stage) api.close(); });
+    addEventListener('keydown', e => {
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape') api.close(); else if (e.key === 'ArrowRight') step(1); else if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'Tab') { const f = [closeB, prevB, nextB].filter(b => !b.hidden); const k = f.indexOf(document.activeElement); e.preventDefault(); f[(k + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus(); }
+    });
+    addEventListener('hashchange', () => { if (box.classList.contains('open')) api.close(); });
+    return api;
+  })();
+
+  // ---------- VIDEO SECTION: content/videos.json, plays in the page ----------
+  fetch('content/videos.json').then(r => r.json()).then(list => {
+    const wrap = document.getElementById('vids');
+    list.forEach(v => {
+      const card = el('article', 'vid');
+      const screen = el('div', 'screen');
+      const btn = el('button'); btn.type = 'button'; btn.setAttribute('aria-label', 'Play ' + v.title);
+      const im = el('img'); im.src = v.thumb; im.alt = ''; im.loading = 'lazy';
+      btn.append(im, el('span', 'play', '( ▶ PLAY )'));
+      btn.onclick = () => {
+        const f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0';
+        f.title = v.title; f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+        screen.textContent = ''; screen.appendChild(f);
+      };
+      screen.appendChild(btn);
+      const row = el('div', 'row2');
+      [v.channel, v.views && v.views + ' views', v.year].filter(Boolean).forEach(x => row.appendChild(el('span', '', '( ' + x + ' )')));
+      const yt = el('a', '', 'Watch on YouTube ↗'); yt.href = 'https://www.youtube.com/watch?v=' + v.id; yt.target = '_blank'; yt.rel = 'noopener';
+      row.appendChild(yt);
+      card.append(screen, el('b', '', v.title), row);
+      if (v.note) card.appendChild(el('small', '', v.note));
+      wrap.appendChild(card);
+    });
+  }).catch(() => {});
+})();
+</script>
+</body>
+</html>
