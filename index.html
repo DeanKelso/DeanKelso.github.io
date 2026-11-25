@@ -951,7 +951,11 @@
     document.body.classList.toggle('work-mode', !!w);
     if (m) { showPiece(m[1]); scrollTo(0, 0); }
     else if (w) { showWork(w[1]); scrollTo(0, 0); }
-    else if (location.hash.length > 1) { const t = document.querySelector(location.hash); if (t) t.scrollIntoView(); }
+    else if (location.hash.length > 1) {   // section links (#work, #about, #top...): scroll there, then drop the #... so the address stays clean
+      let t = null; try { t = document.querySelector(location.hash); } catch (e) {}
+      if (location.hash === '#top') scrollTo(0, 0); else if (t) t.scrollIntoView();
+      history.replaceState(null, '', location.pathname + location.search);
+    }
     kick();
   }
   addEventListener('hashchange', route);
