@@ -1488,7 +1488,7 @@
       const g = guy.getBoundingClientRect(), cs = getComputedStyle(guy), chw = parseFloat(cs.fontSize) * .6;
       const handX = g.left + chw * 4.5, startY = g.top;
       const rope = el('div', 'rope'); rope.style.left = handX + 'px'; rope.style.height = '0px'; document.body.appendChild(rope);
-      const climb = el('pre', 'climber'); climb.textContent = HANG.join('\n'); climb.style.left = (g.left + chw) + 'px'; climb.style.top = startY + 'px';
+      const climb = el('pre', 'climber'); climb.textContent = HANG.join('\n'); climb.style.left = (handX - 14 * .6 * 4.5) + 'px';   // rope runs up the middle of his raised hands (\|/), climber font is 14px climb.style.top = startY + 'px';
       btn.style.visibility = 'hidden';
       await tween(380, t => { rope.style.height = (startY * ease(t)) + 'px'; });               // the rope drops
       guy.style.visibility = 'hidden'; document.body.appendChild(climb);                          // he grabs it
