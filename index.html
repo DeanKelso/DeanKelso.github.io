@@ -299,13 +299,13 @@
   .pager a { display: flex; gap: 12px; padding: 22px 8px; text-decoration: none; text-transform: uppercase; letter-spacing: .06em; }
   .pager a + a { justify-content: flex-end; text-align: right; border-left: 1px solid var(--line); }
   .pager a:hover, .pager a:focus-visible { background: #fff; color: #000; }
-  .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .tools { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .tools > div { padding: 22px 18px 24px; border-left: 1px solid var(--line); }
   .tools > div:first-child { border-left: 0; padding-left: 8px; }
   .tools small { display: block; color: #8a8a8a; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
   .tools ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
   .tools li { font-size: clamp(17px, 1.8vw, 24px); font-weight: 700; text-transform: uppercase; letter-spacing: -.005em; line-height: 1.15; }
-  @media (max-width: 820px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tools > div:nth-child(3) { border-left: 0; padding-left: 8px; } .tools > div:nth-child(n+3) { border-top: 1px solid var(--line); } }
+  @media (max-width: 820px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tools > div:nth-child(3), .tools > div:nth-child(5) { border-left: 0; padding-left: 8px; } .tools > div:nth-child(n+3) { border-top: 1px solid var(--line); } }
   footer .row .mail { display: inline-flex; align-items: center; gap: 14px; border: 1px solid #fff; padding: 12px 14px 12px 16px; font: inherit; font-size: 13px; letter-spacing: .06em; color: #fff; text-transform: none; cursor: pointer; }
   footer .row .mail .ic { width: 16px; height: 16px; flex: none; padding-left: 12px; box-sizing: content-box; border-left: 1px solid #555; }
   footer .row .mail .ok { display: none; font-size: 11px; letter-spacing: .1em; }
@@ -523,6 +523,7 @@
       <div><small>( 3D + art )</small><ul><li>Blender</li><li>Substance Painter</li><li>Photoshop</li></ul></div>
       <div><small>( Video )</small><ul><li>Premiere Pro</li><li>DaVinci Resolve</li></ul></div>
       <div><small>( Code )</small><ul><li>UE5 Blueprints</li><li>GDScript</li><li>Python</li><li>JavaScript</li></ul></div>
+      <div><small>( AI )</small><ul><li>Claude</li><li>AI coding agents</li></ul></div>
     </div>
   </section>
 
@@ -531,7 +532,7 @@
     <div class="bio">
       <div>
         <h2 id="aboutH">Hi, I'm Dean</h2>
-        <p>I'm a digital creator and designer from Hillsboro, Oregon. Since 2019 I've taken on whatever a project needed: 3D characters and props in Blender, game systems in Unreal Engine 5 and Godot, thumbnails and branding in Photoshop, and video edits in DaVinci Resolve.</p>
+        <p>I'm a digital creator and designer from Hillsboro, Oregon. Since 2019 I've taken on whatever a project needed: 3D characters and props in Blender, game systems in Unreal Engine 5 and Godot, thumbnails and branding in Photoshop, and video edits in DaVinci Resolve. I'm also used to working with AI tools like Claude to code, research and automate the boring parts, and I check everything they make.</p>
         <p>I've worked with 10+ clients, made all the art for a game jam game in under 4 days, and brought back an old Kindle game my girlfriend loved as a kid. When something breaks, I dig until I know why.</p>
         <p>My rule is simple: if I don't know how to do something yet, I learn it, then I build it. Right now that means three game prototypes, including 1v1 Me-Bro, a competitive party game I'm playtesting with friends, plus an incremental mobile game.</p>
       </div>
